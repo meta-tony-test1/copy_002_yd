@@ -43,6 +43,11 @@ border-collapse: collapse;
 border-spacing: 0;
 }
 /* reset */
+body {
+    font-size: 15px;
+    color:#494949;
+    font-family:'Malgun Gothic';
+}
 a {
     text-decoration: none;
     color:inherit
@@ -51,6 +56,9 @@ a {
 button {
     border: none;
     background: none;
+}
+img {
+    vertical-align: middle;
 }
 /* common */
 .wrap {
@@ -66,7 +74,10 @@ ul:after, .wrap:after {
 
 
 /* header */
-
+header {
+    text-align: center;
+    font-size: 12px;
+}
 header .fnb {
     background: #02346b;
     color: #fff;
@@ -75,6 +86,7 @@ header .fnb {
 
 header .fnb ul.family {
     float: left;
+    line-height: 48px;
 }
 
 header .fnb ul.family li {
@@ -82,22 +94,158 @@ header .fnb ul.family li {
 }
 
 header .fnb ul.family li:after {
+/*  font-size: 10px;  */  /*?? 폰트사이즈를 줄이면 레이아웃이 꺠진다*/
     content: '|';
+    color: #eee;
     margin: 0 20px;
 }
 
 header .fnb ul.family li:last-child:after {
-    display: none;
+    content: '';
+    margin: 0;
+    width: 50px;
+    height: 48px;
+    background: url(../images/flag_learn.jpg)no-repeat center;
+    display: block;
+    float: left;
+    margin-right: 3px;
 }
 
 header .fnb .side {
-    float: right;
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 14px;
+    height: 48px;
+    line-height: 48px;
+
 }
-header .fnb .side {
+header .fnb .side:after {
     content:"";
     clear: both;
     display: block;
 }
 header .fnb .side p {
+    padding: 0 22px 0 10px;
     float: left;
+    position: relative;
+    margin-right: 20px;
+}
+header .fnb .side p:before {
+    content: '';
+    margin: 0;
+    width: 21px;
+    height: 48px;
+    background: url(../images/lang_ico.png)no-repeat center;
+    display: block;
+    float: left;
+    margin-right: 3px;
+}
+header .fnb .side p:after {/* 더보기 삼각형 */
+    position: absolute;
+    right: 6px;
+    top: calc(50% - 2px);
+    content:"";
+    border-bottom: 5px solid transparent; /* 사이즈는 중점과의 거리 */
+    border-top: 5px solid #fff;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+
+}
+
+header .fnb .side p span {
+    position: absolute;
+    width: 100%;
+    top: calc(100% + 2px);
+    left: 50%;
+    transform:translateX(-50%);
+}
+header .fnb .side p span a {
+    background: #03346c;
+    display: block;
+    line-height: 40px;
+    border-bottom: 1px dashed #4e627d;
+    display: none;
+}
+header .fnb .side > a {
+    padding: 0 20px;
+    display: block;
+    float: left;
+    margin-left: 32px;
+    position: relative;
+}
+header .fnb .side > a:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -32px;
+    width: 32px;
+    height: 48px;
+    background:url(../images/toplink_img01.png)no-repeat center;
+}
+header .fnb .side button{
+    position: relative;
+    height: 48px;
+    padding-left: 20px;
+    background: #01234b;
+    display: block;
+    float: left;
+    z-index: 2;
+}
+header .fnb .side button:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -100vw;
+    height: 48px;
+    width: 100vw;
+    background: #01234b;
+}
+
+header .gnb {
+    line-height: 90px;
+    border-bottom: 1px solid #eee;
+}
+header .gnb h1 {
+    float: left;
+}
+
+header .gnb ul{
+    float: left;
+    padding-left: 300px;
+    font-size: 16px;
+    color: #2a2a2a;
+    font-weight: 600;
+}
+header .gnb ul li {
+    float: left;
+    padding: 0 20px;
+    position: relative;
+}
+header .gnb ul li:after {
+    content: "";
+    position: absolute;
+    top: 43px;
+    right: -2px;
+    width: 4px;
+    height: 4px;
+    background: #d5d5d5;
+
+}
+header .gnb ul li:last-child:after{
+    display: none;
+}
+header .gnb .head_icon {
+    background: #eee;
+    float: right;
+}
+header .gnb .head_icon button {
+    width: 90px;
+}
+header .gnb .head_icon > a {
+    display: block;
+    float: right;
+    width: 64px;
+    height: 90px;
+    background: #aaa;
 }
