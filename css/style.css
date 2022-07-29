@@ -62,6 +62,9 @@ img {
     vertical-align: middle;
 }
 /* common */
+body, html {
+    height: 100%;
+}
 .wrap {
     width: min(1240px, 100vw);
     margin: 0 auto;
@@ -78,6 +81,8 @@ ul:after, .wrap:after {
 header {
     text-align: center;
     font-size: 12px;
+    position: relative;
+    z-index: 1;
 }
 header .fnb {
     background: #02346b;
@@ -214,25 +219,40 @@ header .fnb .side button:after {
 
 header .gnb {
     line-height: 90px;
-    border-bottom: 1px solid #eee;
+    position: relative;
+    background: #fff;
 }
 header .gnb h1 {
     float: left;
 }
+header .gnb h1:after {
+    content: '';
+    width: 200vw;
+    height: 1px;
+    background: #eee;
+    position: absolute;
+    bottom: 0;
+    left: -100vw;
+}
 
-header .gnb ul{
+header .gnb ul.gnb_title {
     float: left;
     padding-left: 300px;
     font-size: 16px;
     color: #2a2a2a;
     font-weight: 600;
 }
-header .gnb ul li {
+header .gnb ul.gnb_title li {
     float: left;
     padding: 0 20px;
     position: relative;
 }
-header .gnb ul li:after {
+header .gnb ul.gnb_title li a {
+    position: relative;
+    display: block;
+    height: 100%;
+}
+header .gnb ul.gnb_title li:after {
     content: "";
     position: absolute;
     top: 43px;
@@ -240,11 +260,31 @@ header .gnb ul li:after {
     width: 4px;
     height: 4px;
     background: #d5d5d5;
-
 }
-header .gnb ul li:last-child:after{
+header .gnb ul.gnb_title li:last-child:after{
     display: none;
 }
+header .gnb ul.gnb_title li:hover a:before {
+    content: '';
+    position: absolute;
+    bottom: 8px;
+    left: calc(50% - 6px);
+    border-bottom: 6px solid #02346b;
+    border-top: 6px solid transparent;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+}
+header .gnb ul.gnb_title li:hover:before {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 5px;
+    bottom: 0;
+    left: 50%;
+    background: #02346b;
+
+}
+
 header .gnb .head_icon {
     float: right;
     height: 90px;
@@ -269,4 +309,175 @@ header .gnb .head_icon > a {
     background: url(../images/menu.png)no-repeat center;
     border: solid #ddd;
     border-width: 0 1px;
+}
+header .gnb #detail {
+    width: 100%;
+    background: #fff;
+    position: fixed;
+    top: 140px;
+    border-bottom: 1px solid #eee;
+    overflow: hidden;
+    height: 0;
+    z-index: 100;
+}
+header .gnb #detail .wrap > div {
+    padding-bottom: 50px;
+    margin-bottom: 50px;
+    text-align: left;
+    background-repeat: no-repeat;
+    background-position: 120px bottom;
+    display: none;
+}
+header .gnb #detail .wrap > div.on {
+    display: block;
+}
+header .gnb #detail .wrap > div:after {
+    content: "";
+    clear: both;
+    display: block;
+}
+header .gnb #detail .wrap > div .title {
+    padding: 8px;
+    float: left;
+    width: 25%;
+    padding-top: 8px;
+    height: 100%;
+}
+header .gnb #detail .wrap > div:nth-child(1) {
+    background-image: url(../images/head_title_1.png);
+
+}
+header .gnb #detail .wrap > div:nth-child(2) {
+    background-image: url(../images/head_title_2.png);
+}
+header .gnb #detail .wrap > div:nth-child(3) {
+    background-image: url(../images/head_title_3.png);
+}
+header .gnb #detail .wrap > div:nth-child(4) {
+    background-image: url(../images/head_title_4.png);
+}
+header .gnb #detail .wrap > div:nth-child(5) {
+    background-image: url(../images/head_title_5.png);
+}
+header .gnb #detail .wrap > div:nth-child(6) {
+    background-image: url(../images/head_title_6.png);
+}
+header .gnb #detail > div .title h3 {
+    line-height: 74px;
+    font-size: 24px;
+    font-weight: 800;
+    position: relative;
+}
+header .gnb #detail > div .title h3:after {
+    content: "";
+    position: absolute;
+    width: 30px;
+    height: 2px;
+    background: #000;
+    bottom: 0;
+    left: 0;
+}
+header .gnb #detail > div .title p {
+    line-height: 60px;
+    color: #666;
+    font-size: 13px;
+
+}
+
+header .gnb #detail > div .category {
+    color: #353533;
+    line-height: 30px;
+    width: 75%;
+    float: right;
+    padding-top: 24px;
+}
+header .gnb #detail > div .category:after {
+    content: '';
+    clear: both;
+    display: block;
+}
+header .gnb #detail > div .category ul {
+    float: left;
+    width: 25%;
+    padding-right: 24px;
+}
+header .gnb #detail > div .category ul:last-child{
+    padding-right: 0;
+}
+header .gnb #detail > div .category ul li {
+    margin-bottom: 40px;
+    min-height: 200px;
+}
+header .gnb #detail > div .category > a {
+    float: left;
+    width: 25%;
+}
+header .gnb #detail > div .category ul li > a {
+    display: block;
+    padding:0 16px;
+    position: relative;
+}
+header .gnb #detail > div .category ul li > a:after{
+    content: '';
+    width: 2px;
+    height: 2px;
+    background: #afafb0;
+    position: absolute;
+    top: calc(50% - 1px);
+    left: 10px;
+}
+header .gnb #detail > div .category ul li > a:first-child {
+    display: block;
+    line-height: 52px;
+    border: 1px solid #ddd;
+    color: #555;
+    padding:0 12px;
+    margin-bottom: 8px;
+
+}
+header .gnb #detail > div .category ul li > a:first-child:after{
+    width: 4px;
+    height: 4px;
+    top: calc( 50% - 6px );
+    left: auto; /* left 초기화*/
+    right: 14px;
+    background: transparent;
+    border-bottom: 1px solid #818181;
+    border-top: 1px solid transparent;
+    border-left: 1px solid #818181;
+    border-right: 1px solid transparent;
+    transform: rotate(-45deg);
+}
+/* 디테일 메뉴 호버*/
+header .gnb #detail > div .category ul li:hover a:first-child{
+    border: 1px solid #02346b;
+    outline: 1px solid #02346b;
+    color: #02346b;
+    text-decoration: none;
+}
+header .gnb #detail > div .category ul li a:hover span {
+    position: relative;
+}
+header .gnb #detail > div .category ul li a:hover span:before{
+    content: "";
+    position: absolute;
+    background: #02346b;
+    width: 100%;
+    height: 1px;
+    bottom: -4px;
+    left: 0;
+}
+header .gnb #detail > div .category ul li > a:hover:after {
+    background: #02346b;
+}
+header .gnb #detail > div .category ul li > a:first-child:hover:after {
+    background: transparent;
+}
+.modal.on{
+    background: rgba(0,0,0,0.5);
+    width: 100vw;
+    height: 100vw;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
