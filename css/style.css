@@ -63,10 +63,11 @@ img {
 }
 /* common */
 body, html {
-    height: 100%;
+    overflow-x: hidden;
+
 }
 .wrap {
-    width: min(1240px, 100vw);
+    width: min(1280px, 98vw);
     margin: 0 auto;
     position: relative;
 }
@@ -75,7 +76,14 @@ ul:after, .wrap:after {
     clear:both;
     display: block;
 }
-
+.modal.on{
+    background: rgba(0,0,0,0.5);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
 
 /* header */
 header {
@@ -169,18 +177,26 @@ header .fnb .side p:after {/* 더보기 삼각형 */
 }
 
 header .fnb .side p span {
+    display: none;
+    z-index: 1;
     position: absolute;
     width: 100%;
     top: calc(100% + 2px);
     left: 50%;
     transform:translateX(-50%);
 }
+header .fnb .side p.on span {
+    display: block;
+}
 header .fnb .side p span a {
     background: #03346c;
     display: block;
     line-height: 40px;
     border-bottom: 1px dashed #4e627d;
-    display: none;
+
+}
+header .fnb .side p span a:hover {
+    background: #072348;
 }
 header .fnb .side > a {
     padding: 0 20px;
@@ -219,7 +235,8 @@ header .fnb .side button:after {
 
 header .gnb {
     line-height: 90px;
-    position: relative;
+    position: absolute;
+    width: 100%;
     background: #fff;
 }
 header .gnb h1 {
@@ -274,26 +291,70 @@ header .gnb ul.gnb_title li:hover a:before {
     border-left: 6px solid transparent;
     border-right: 6px solid transparent;
 }
-header .gnb ul.gnb_title li:hover:before {
+header .gnb ul.gnb_title li:before {
+    transition: 0.3s;
+    opacity: 10%;
     content: '';
     position: absolute;
-    width: 10px;
+    width: 0;
     height: 5px;
     bottom: 0;
     left: 50%;
     background: #02346b;
-
+}
+header .gnb ul.gnb_title li.on:before {
+    opacity: 100%;
+    width: 100%;
+    left: 0;
 }
 
 header .gnb .head_icon {
     float: right;
     height: 90px;
 }
-header .gnb .head_icon button {
+header .gnb .head_icon > button {
     width: 90px;
     height: 90px;
     float: left;
     border-left: 1px solid #ddd;
+    position: relative;
+}
+header .gnb .head_icon button.on {
+    background: #0056b3;
+}
+header .gnb .head_icon button.on i {
+    display: none;
+}
+header .gnb .head_icon button.on img {
+    display: none;
+}
+header .gnb .head_icon button.on:after {
+    content: '';
+    width: 40px;
+    height: 1px;
+    background: #fff;
+    position: absolute;
+    top: 50%;
+    left: calc(50% - 20px);
+    -moz-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+header .gnb .head_icon button.on:before {
+    content: '';
+    width: 40px;
+    height: 1px;
+    background: #fff;
+    position: absolute;
+    top: 50%;
+    left: calc(50% - 20px);
+    -moz-transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg);
 }
 header .gnb .head_icon button i {
 
@@ -310,18 +371,50 @@ header .gnb .head_icon > a {
     border: solid #ddd;
     border-width: 0 1px;
 }
+header .gnb .head_icon button > span {
+    display: none;
+}
+header .gnb .head_icon button.on > span {
+    z-index: 100;
+    background: #fff;
+    display: block;
+    position: absolute;
+    right: 5px;
+    bottom: 0;
+    transform: translateY(100%);
+    outline: 5px solid #0056b3;
+}
+header .gnb .head_icon button > span > label {
+    background: #555b69;
+    color:#fff;
+    width: 60px;
+    line-height: 45px;
+    position: absolute;
+    top: 30px;
+    right: 30px;
+}
+header .gnb .head_icon button > span > input {
+    border: 1px solid #c4c4c4;
+    box-sizing: border-box;
+    height: 45px;
+    width: 455px;
+    margin: 30px;
+    padding: 12px 10px;
+
+}
+header .gnb .head_icon button > span > input::placeholder{
+    color: #757575;
+    font-size: 14px;
+}
 header .gnb #detail {
     width: 100%;
     background: #fff;
-    position: fixed;
-    top: 140px;
-    border-bottom: 1px solid #eee;
+    top: 90px;
     overflow: hidden;
     height: 0;
     z-index: 100;
 }
 header .gnb #detail .wrap > div {
-    padding-bottom: 50px;
     margin-bottom: 50px;
     text-align: left;
     background-repeat: no-repeat;
@@ -386,7 +479,7 @@ header .gnb #detail > div .title p {
 
 header .gnb #detail > div .category {
     color: #353533;
-    line-height: 30px;
+    line-height: 24px;
     width: 75%;
     float: right;
     padding-top: 24px;
@@ -404,9 +497,20 @@ header .gnb #detail > div .category ul {
 header .gnb #detail > div .category ul:last-child{
     padding-right: 0;
 }
-header .gnb #detail > div .category ul li {
+header .gnb #detail > div .category ul li:first-child {
     margin-bottom: 40px;
+}
+header .gnb #detail .com .category ul li {
+    min-height: 340px;
+}
+header .gnb #detail .news .category ul li {
     min-height: 200px;
+}
+header .gnb #detail .info .category ul li {
+    min-height: 255px;
+}
+header .gnb #detail .int .category ul li {
+    min-height: 255px;
 }
 header .gnb #detail > div .category > a {
     float: left;
@@ -473,11 +577,61 @@ header .gnb #detail > div .category ul li > a:hover:after {
 header .gnb #detail > div .category ul li > a:first-child:hover:after {
     background: transparent;
 }
-.modal.on{
-    background: rgba(0,0,0,0.5);
-    width: 100vw;
-    height: 100vw;
-    position: absolute;
-    top: 0;
-    left: 0;
+header .gnb #detail .part .category > a {
+    line-height: 57px;
+    border-right: 1px dashed #ddd;
+    padding: 0 20px;
+    margin-bottom: 20px;
+
 }
+header .gnb #detail .part .category > a:nth-child(4n) {
+    border:none;
+}
+header .gnb #detail .part .category a span {
+    content:"";
+    width: 57px;
+    height: 57px;
+    border: 1px solid #ddd;
+    border-radius: 100px;
+    margin-right: 10px;
+    float: left;
+    background-position: center;
+    background-repeat: no-repeat;
+/*    background-image:url(../images/h1.png)*/
+}
+header .gnb #detail .part .category a:hover{
+    color: #04366c;
+}
+header .gnb #detail .part .category a:hover span{
+    border: 1px solid #04366c;
+}
+
+header .gnb #detail .district .category a {
+    width: calc(20% - 15px);
+    outline: 1px solid #ddd;
+    line-height: 50px;
+    padding: 0 12px;
+    margin-right: 15px;
+    position: relative;
+    margin-bottom: 20px;
+}
+header .gnb #detail .district .category a:after {
+    content: '';
+    width: 4px;
+    height: 4px;
+    position: absolute;
+    top: calc( 50% - 6px );
+    right: 14px;
+    background: transparent;
+    border-bottom: 1px solid #818181;
+    border-top: 1px solid transparent;
+    border-left: 1px solid #818181;
+    border-right: 1px solid transparent;
+    transform: rotate(-45deg);
+}
+header .gnb #detail .district .category a:hover {
+    outline: 1px solid #04366c;
+}
+
+.blank { background: #ff0; height: 90px;}
+.scroll { height: 2000px; background: #bbb;}

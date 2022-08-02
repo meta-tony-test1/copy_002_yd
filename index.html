@@ -2,14 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
     <title>영동군청</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/m_style.css">
 </head>
 <body>
     <header>
         <div class="fnb">
            <div class="wrap">
-                   <ul class="family">
+                   <ul class="family pc">
                        <li><a href="#">영동군청</a></li>
                        <li><a href="#">문화관광</a></li>
                        <li><a href="#">미디어</a></li>
@@ -18,7 +20,7 @@
                        <li><a href="#">국가상징 알아보기</a></li>
                    </ul>
                 <div class="side">
-                        <p>
+                        <p class="re_s">
                             언어선택
                             <span>
                                 <a href="#">ENG</a>
@@ -26,7 +28,7 @@
                                 <a href="#">日本語</a>
                             </span>
                         </p>
-                        <a href="index.html">홈으로</a>
+                        <a href="#+" class="re_l">홈으로</a>
                         <button><img src="images/toplink_img02.png" alt="영동의 홈페이지 바로가기"></button>
                     </div>
                 </div>
@@ -36,7 +38,7 @@
             <div class="wrap">
                 <h1><img src="images/logo.png" alt="영동군"></h1>
 
-                <ul class="gnb_title">
+                <ul class="gnb_title re_s">
                     <li><a href="#">종합민원</a></li>
                     <li><a href="#">소식 &#183; 참여</a></li>
                     <li><a href="#">행정정보</a></li>
@@ -46,8 +48,15 @@
                 </ul>
 
                 <div class="head_icon">
-                    <button><i>검색</i><img src="images/search.png" alt="검색 아이콘"></button>
-                    <a href="sitemap.html"></a>
+                    <button>
+                        <i class="re_l">검색</i>
+                        <img src="images/search.png" alt="검색 아이콘" class="pc_s">
+                        <span>
+                            <input type="text" placeholder="검색어를 입력해주세요" id="search_btn">
+                            <label for="search_btn">검색</label>
+                        </span>
+                    </button>
+                    <a href="#+"></a>
                 </div>
             </div>
 
@@ -70,16 +79,17 @@
                                     <a href="#"><span>국세(홈택스)</span></a>
                                     <a href="#"><span>인터넷지로납부</span></a>
                                </li>
-
                                <li>
-                                    <a href="#"><em>민원신고센터</em></a>
-                                    <a href="#"><span>민원부조리신고센터</span></a>
-                                    <a href="#"><span>공직비리신고</span></a>
-                                    <a href="#"><span>식품안전소비자신고센터</span></a>
-                                    <a href="#"><span>안전신고</span></a>
-                                    <a href="#"><span>사전컨설팅감사</span></a>
-                                    <a href="#"><span>부동산불법거래신고센터</span></a>
-                                    <a href="#"><span>홈페이지 오류 신고</span></a>
+                                    <a href="#"><span><em>법무행정안내</em></span></a>
+                                    <a href="#"><span>행정심판 제도</span></a>
+                                    <a href="#"><span>행정소송 제도</span></a>
+                                    <a href="#"><span>행정절차 제도</span></a>
+                                    <a href="#"><span>자치법규입법절차제도</span></a>
+                                    <a href="#"><span>법률구조제도안내</span></a>
+                                    <a href="#"><span>소청심사 제도</span></a>
+                                    <a href="#"><span>온라인 행정심판 청구</span></a>
+                                    <a href="#"><span>무료법률상담실</span></a>
+                                    <a href="#"><span>자치법규</span></a>
                                </li>
                             </ul>
 
@@ -199,10 +209,10 @@
                     </div>
                     <div class="info">
                         <div class="title">
-
+                        <h3>행정정보</h3>
+                        <p>군민 여러분과 함께 만들어갑니다.</p>
                         </div>
                         <div class="category">
-
                             <ul>
                               <li>
                                    <a href="#"><em>군정운영방향</em></a>
@@ -281,16 +291,12 @@
                                 </li>
                             </ul>
 
-
-
-
-
-
                     </div>
                     </div>
                     <div class="int">
                         <div class="title">
-
+                        <h3>영동소개</h3>
+                        <p>꿈과 희망이 넘치는 <br>레인보우 영동을 소개합니다.</p>
                         </div>
                         <div class="category">
                             <ul>
@@ -364,26 +370,28 @@
                     </div>
                     <div class="part">
                         <div class="title">
-
+                        <h3>분야별정보</h3>
+                        <p>원하는 정보를 쉽게 찾으실 수 있습니다.</p>
                         </div>
                         <div class="category">
-                            <a href="#">복지</a>
-                            <a href="#">산업/경제</a>
-                            <a href="#">보건/의료</a>
-                            <a href="#">농/축산업</a>
-                            <a href="#">재난/안전/민방위</a>
-                            <a href="#">환경/상하수도</a>
-                            <a href="#">교통</a>
-                            <a href="#">식품/위생</a>
-                            <a href="#">교육/강좌</a>
-                            <a href="#">체육시설</a>
-                            <a href="#">부동산</a>
+                            <a href="#"><span></span>복지</a>
+                            <a href="#"><span></span>산업/경제</a>
+                            <a href="#"><span></span>보건/의료</a>
+                            <a href="#"><span></span>농/축산업</a>
+                            <a href="#"><span></span>재난/안전/민방위</a>
+                            <a href="#"><span></span>환경/상하수도</a>
+                            <a href="#"><span></span>교통</a>
+                            <a href="#"><span></span>식품/위생</a>
+                            <a href="#"><span></span>교육/강좌</a>
+                            <a href="#"><span></span>체육시설</a>
+                            <a href="#"><span></span>부동산</a>
                         </div>
 
                     </div>
-                    <div class="dstrict">
+                    <div class="district">
                         <div class="title">
-
+                        <h3>읍면</h3>
+                        <p>영동군의 읍면 정보를 안내합니다.</p>
                         </div>
                         <div class="category">
                             <a href="#">영동읍</a>
@@ -403,6 +411,8 @@
             </div>
         </div>
     </header>
+    <div class="blank"></div>
+    <div class="scroll"></div>
     <div class="modal"></div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" referrerpolicy="no-referrer"></script>
     <script src="js/script.js">
