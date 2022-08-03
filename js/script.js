@@ -1,6 +1,8 @@
 /* header */
 var h_no;
-var h_h
+var h_h;
+var ww = $(window).width();
+
 $(".gnb_title li").hover(function(){
     h_no = $(this).index();
     $("#detail .wrap > div").eq(h_no).addClass("on").siblings("div").removeClass("on")
@@ -31,9 +33,43 @@ function(){
     $(this).children().css({"background-image":"url(images/h"+bp+".png)"});
 })
 
+
+$("header .fnb .side p").click(function(){
+    $(this).toggleClass("on");
+})
+
+/* 메뉴 & 사이트맵 아이콘 */
+$(".head_icon > a").click(function(){
+    ww = $(window).width();
+    console.log(ww);
+    if(ww <= 1030) {
+        $(this).attr("href","#")
+    }else{
+        $(this).attr("href","sitemap.html")
+    }
+})
+
 $(".head_icon button").click(function(){
     $(this).toggleClass("on");
 })
-$("header .fnb .side p").click(function(){
-    $(this).toggleClass("on");
+/* 모바일 메뉴 */
+$(".head_icon > a").click(function(){
+    $("#m_menu").addClass("on");
+    $(".m_modal").addClass("on");
+})
+$(".m_modal").click(function(){
+    $("#m_menu").removeClass("on");
+    $(".m_modal").removeClass("on");
+})
+$(".menu_lang p").click(function(){
+    $(".menu_lang").toggleClass("on")
+})
+
+$(".menu_list h3").click(function(){
+    $(this).addClass("blue").siblings("ul").slideDown(500)
+        .parent().siblings().children("ul").slideUp(500).siblings("h3").removeClass("blue") ;
+})
+
+$(".menu_list p").click(function(){
+    $(this).toggleClass("on").siblings("div").slideToggle(500);
 })

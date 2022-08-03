@@ -67,7 +67,7 @@ body, html {
 
 }
 .wrap {
-    width: min(1280px, 98vw);
+    width: min(1280px, 100%);
     margin: 0 auto;
     position: relative;
 }
@@ -83,6 +83,15 @@ ul:after, .wrap:after {
     position: absolute;
     top: 0;
     left: 0;
+}
+.m_modal.on{
+    background: rgba(0,0,0,0.5);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
 }
 
 /* header */
@@ -254,7 +263,7 @@ header .gnb h1:after {
 
 header .gnb ul.gnb_title {
     float: left;
-    padding-left: 300px;
+    padding-left: 24%;
     font-size: 16px;
     color: #2a2a2a;
     font-weight: 600;
@@ -272,7 +281,8 @@ header .gnb ul.gnb_title li a {
 header .gnb ul.gnb_title li:after {
     content: "";
     position: absolute;
-    top: 43px;
+    top: 50%;
+    transform: translateY(-50%);
     right: -2px;
     width: 4px;
     height: 4px;
@@ -314,7 +324,7 @@ header .gnb .head_icon {
 }
 header .gnb .head_icon > button {
     width: 90px;
-    height: 90px;
+    height: 100%;
     float: left;
     border-left: 1px solid #ddd;
     position: relative;
@@ -336,10 +346,6 @@ header .gnb .head_icon button.on:after {
     position: absolute;
     top: 50%;
     left: calc(50% - 20px);
-    -moz-transform: rotate(45deg);
-    -webkit-transform: rotate(45deg);
-    -o-transform: rotate(45deg);
-    -ms-transform: rotate(45deg);
     transform: rotate(45deg);
 }
 header .gnb .head_icon button.on:before {
@@ -350,10 +356,6 @@ header .gnb .head_icon button.on:before {
     position: absolute;
     top: 50%;
     left: calc(50% - 20px);
-    -moz-transform: rotate(-45deg);
-    -webkit-transform: rotate(-45deg);
-    -o-transform: rotate(-45deg);
-    -ms-transform: rotate(-45deg);
     transform: rotate(-45deg);
 }
 header .gnb .head_icon button i {
@@ -366,7 +368,7 @@ header .gnb .head_icon > a {
     display: block;
     float: right;
     width: 64px;
-    height: 90px;
+    height: 100%;
     background: url(../images/menu.png)no-repeat center;
     border: solid #ddd;
     border-width: 0 1px;
@@ -380,7 +382,7 @@ header .gnb .head_icon button.on > span {
     display: block;
     position: absolute;
     right: 5px;
-    bottom: 0;
+    bottom: -5px;
     transform: translateY(100%);
     outline: 5px solid #0056b3;
 }
@@ -631,6 +633,208 @@ header .gnb #detail .district .category a:after {
 }
 header .gnb #detail .district .category a:hover {
     outline: 1px solid #04366c;
+}
+/* 모바일 메뉴 */
+#m_menu {
+    background: #494949;
+    position: absolute;
+    z-index: 10;
+    width: 300px;
+    height: 100%;
+    top: 0;
+    right: -300px;
+    overflow: auto;
+    transition:0.5s;
+}
+#m_menu.on {
+    right: 0;
+}
+#m_menu .menu_top {
+    padding: 10px 0;
+    background: #fff;
+}
+#m_menu .menu_top li {
+    float: left;
+    width: calc(100% / 3);
+    text-align: center;
+    position: relative;
+
+}
+#m_menu .menu_top li:after {
+    content: '|';
+    font-size: 10px;
+    color: #d3d3d3;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%)
+}
+#m_menu .menu_top li:last-child:after {
+    display: none;
+}
+
+#m_menu .menu_lang {
+    text-align: center;
+    font-weight: 100;
+    line-height: 45px;
+    background: #333;
+    color: #fff;
+    position: relative;
+}
+#m_menu .menu_lang p em{
+    position: relative;
+}
+#m_menu .menu_lang p em:after{
+    content:"";
+    position: absolute;
+    right: -16px;
+    top: 50%;
+    border-top: 5px solid #969799;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+}
+#m_menu .menu_lang ul {
+    position: absolute;
+    display: none;
+    bottom: 0;
+    transform: translateY(100%);
+    left: 0;
+    width: 100%;
+    background: #333;
+    z-index: 10;
+    border-top: 1px dashed #666;
+}
+#m_menu .menu_lang.on ul {
+    display: block;
+}
+#m_menu .menu_lang.on p em:after{
+    transform: rotate(180deg);
+}
+#m_menu .menu_lang li {
+    border-bottom: 1px dashed #666;
+}
+#m_menu .menu_lang li:last-child {
+    border:none;
+}
+#m_menu .menu_list {
+    font-size: 16px;
+}
+
+#m_menu .menu_list h3 {
+    line-height: 52px;
+    background: #494949;
+    color: #fff;
+    border-bottom:1px solid #666;
+    padding: 0 13px;
+    position: relative;
+}
+#m_menu .menu_list h3:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 12px;
+    height: 12px;
+    border:1px solid #fff;
+    transform: rotate(45deg) translateY(200%);
+    border-width: 1px 1px 0 0;
+}
+#m_menu .menu_list h3.blue:after {
+    transform: rotate(135deg) translateY(0) translateX(200%);
+}
+#m_menu .menu_list h3.blue {
+    background: #1c3e89;
+
+}
+#m_menu .menu_list .category ul {
+    display: none;
+}
+#m_menu .menu_list .category:first-child ul {
+    display: block;
+}
+#m_menu .menu_list li > a {
+    background: #fff;
+    display: block;
+    border-bottom:1px solid #666;
+    line-height: 52px;
+    height: 52px;
+    padding: 0 13px;
+    position: relative;
+}
+#m_menu .menu_list li > a:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 8%;
+    transform: translateX(9px);
+    height: 1px;
+    width: 20px;
+    background: #999;
+}
+#m_menu .menu_list li > a:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 8%;
+    transform: translateY(-9px);
+    height: 20px;
+    width: 1px;
+    background: #999;
+}
+#m_menu .menu_list p {
+    background: #fff;
+    border-bottom:1px solid #666;
+    line-height: 52px;
+    height: 52px;
+    padding: 0 13px;
+    position: relative;
+}
+#m_menu .menu_list p:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 8%;
+    transform: translateX(9px);
+    height: 1px;
+    width: 20px;
+    background: #999;
+}
+#m_menu .menu_list p:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 8%;
+    transform: translateY(-9px);
+    height: 20px;
+    width: 1px;
+    background: #999;
+}
+#m_menu .menu_list li p.on:before {
+    display: none;
+}
+#m_menu .menu_list .category div {
+    background: #eceeef;
+    padding: 20px 0;
+    display: none;
+}
+#m_menu .menu_list div > a {
+    font-size: 15px;
+    color:#000;
+    display: block;
+    position: relative;
+    line-height: 25px;
+    padding-left: 45px;
+}
+#m_menu .menu_list div > a:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-100%);
+    left: 37px;
+    width: 3px;
+    height: 3px;
+    border-radius: 3px;
+    background: #9e9f9f;
 }
 
 .blank { background: #ff0; height: 90px;}
