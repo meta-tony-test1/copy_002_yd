@@ -83,30 +83,29 @@ $(".v_map .next").click(function(){
 })
 
 /* s1-main_slide*/
-var ms_last = $(".main_slide li:last-child").index();
+var ms_last = $(".main_slide li:last-child").index() + 1;
 var ms_no = 1;
-$(".main_slide .list_no").text(ms_no + "/" + (ms_last + 1));
+$(".main_slide .list_no").text(ms_no + "/" + (ms_last));
 
-function back(){ /* !!! stop()이 적용되지 않는다. */
-    $(".main_slide li:last-child").stop().prependTo($(".main_slide ul")).css({"opacity":0}).animate({"opacity":1},300,function(){
+function back(){
+    $(".main_slide li:last-child").prependTo($(".main_slide ul")).css({"opacity":0});
+    $(".main_slide li:first-child").finish().animate({"opacity":1},300);
     ms_no--;
     if(ms_no <= 0){ ms_no = 6}
-    $(".main_slide .list_no").text(ms_no + "/" + (ms_last + 1));
-    });
+    $(".main_slide .list_no").text(ms_no + "/" + (ms_last));
 }
 
 function go(){
-    /* !!! 연속 클릭시 순서 번호가 안맞는다. 콜백함수에 있는데 왜 안맞지?*/
-    /* finish() 를 사용하면 뒤에 있는 animate가 진행되지 않는다.*/
-    $(".main_slide li:first-child").stop().animate({"opacity":0},300,function(){
-    $(this).appendTo($(".main_slide ul")).css({"opacity":1});
+    $(".main_slide li:first-child").finish()
     ms_no++;
     if(ms_no >=7){ ms_no = 1}
-    $(".main_slide .list_no").text(ms_no + "/" + (ms_last + 1));
+    $(".main_slide .list_no").text(ms_no + "/" + (ms_last));
+    $(".main_slide li:first-child").animate({"opacity":0},300,function(){
+    $(this).appendTo($(".main_slide ul")).css({"opacity":1});
     })
 }
 
-$(".main_slide .next").click(function(){
+$(".main_slide .next").finish().click(function(){
     go();
 })
 
