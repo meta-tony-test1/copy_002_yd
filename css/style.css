@@ -841,14 +841,14 @@ header .gnb #detail .district .category a:hover {
 }
 
 .blank { background: #ff0; height: 90px;}
-.scroll { height: 2000px; background: #bbb;}
 
 #cont {
     background: url(../images/bg.png);
 }
 
 #title {
-/*    background: #ffe;*/
+    padding-top: 20px;
+
 }
 
 #title .tomorrow {
@@ -925,6 +925,10 @@ header .gnb #detail .district .category a:hover {
     border-radius: 12px;
     background: #fff url(../images/sns_ir.png)no-repeat
 }
+#visual{
+    margin-top: 20px;
+}
+
 #visual .v_map {
     float: left;
     background: #3c4968;
@@ -977,7 +981,6 @@ header .gnb #detail .district .category a:hover {
 
 #visual .main_slide {
     float: left;
-    background: #eef;
     width: 620px;
     height: 380px;
     position: relative;
@@ -990,7 +993,7 @@ header .gnb #detail .district .category a:hover {
     position: absolute;
     top: 0;
     left: 0;
-    background-size: 620px 380px;
+    background-size: 100%;
     background-repeat: no-repeat;
     width: 100%;
     height: 100%;
@@ -1024,10 +1027,19 @@ header .gnb #detail .district .category a:hover {
 }
 .main_slide > div > span {
     float: left;
+    position: relative;
     width: 52px;
     height: 52px;
+    line-height: 52px;
+    text-align: center;
     margin-right: 4px;
-    background: #f00;
+    background: rgba(0,0,0,0.6);
+    color:#fff;
+    transition: 0.5s;
+
+}
+.main_slide > div > span:hover{
+    background: #000;
 }
 .main_slide > div > span.play {
     display: none;
@@ -1037,4 +1049,148 @@ header .gnb #detail .district .category a:hover {
 }
 .main_slide > div > span.on {
     display: block;
+}
+.main_slide > div > span:after {
+content: '';
+position: absolute;
+top: 50%;
+left: 50%;
+}
+.main_slide > div > span.next:after,
+.main_slide > div > span.prev:after {
+top: 0;
+width: 12px;
+height: 12px;
+border:solid #fff;
+border-width: 2px 2px 0 0;
+}
+.main_slide > div > span.prev:after {
+transform: rotate(-135deg) translateX(-210%);
+left: 4px;
+}
+.main_slide > div > span.next:after {
+transform: rotate(45deg) translateX(210%);
+left: -4px;
+}
+.main_slide > div > span.stop:after {
+    width: 4px;
+    height: 16px;
+    border: solid #fff;
+    border-width: 0 2px;
+    transform: translateY(-50%) translateX(-50%);
+}
+.main_slide > div > span.play:after {
+    border-bottom: 9px solid transparent; /* 사이즈는 중점과의 거리 */
+    border-top: 9px solid transparent;
+    border-left: 13px solid #fff;
+    border-right: 13px solid transparent;
+    transform: translateY(-50%) translateX(-25%);
+}
+.main_slide > div > span.list_no {
+    width: 83px;
+    font-weight: 600;
+}
+
+#visual .staff {
+    width: calc(25% - 10px);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-left: 10px;
+    background: url(../images/mayor_img4.png)no-repeat center/cover;
+}
+#visual .staff .pre {
+    position: relative;
+    height: 274px;
+    padding: 30px 25px 0;
+
+}
+#visual .staff .pre:before{
+    content:"열린군수실";
+    position: absolute;
+    background: url(../images/mayor_img3.png)no-repeat center top;
+    background-origin: border-box;
+    top: 0;
+    right: 30px;
+    width: 86px;
+    height: 39px;
+    line-height: 32px;
+    text-align: center;
+    color: #fff;
+    font-size: 13px;
+}
+#visual .staff .pre:after{
+    content: '';
+    position: absolute;
+    width: 120px;
+    height: 160px;
+    bottom: 0;
+    right: 0;
+    background: url(../images/mayor_img5_20220701.png)no-repeat center bottom;
+    background-size: 140px;
+}
+#visual .staff .pre p {
+    height: 50px;
+    background: url(../images/mayor_img6_20220701.png)no-repeat left bottom;
+    background-size:contain;
+}
+#visual .staff .pre p em {
+    display: none;
+}
+#visual .staff .pre ul {
+    margin-top: 25px;
+}
+#visual .staff .pre ul li {
+    font-size: 12px;
+    background: #fff;
+    width: 95px;
+    line-height: 25px;
+    text-align: center;
+    border-radius: 13px;
+    margin-bottom: 5px;
+    -webkit-box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.24);
+    box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.24);
+    font-size: 13px;
+    color: #343434;
+    transition:0.6s;
+}
+#visual .staff .pre ul li:hover {
+    color: #fff;
+    background: #c3293a;
+}
+
+#visual .staff > ul {
+    padding: 30px 25px 0;
+    height: 106px;
+    background: #c3293a;
+    color: #fff;
+    padding: 20px;
+}
+#visual .staff > ul li {
+    float: left;
+    width: calc(100% / 3) ;
+    height: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    border-right: 1px solid #cf5461;
+}
+#visual .staff > ul li:last-child {
+    border:none;
+}
+#visual .staff > ul li a {
+}
+#visual .staff > ul li a i {
+    left: calc(50% - 17px);
+    top: 0;
+    width: 34px;
+    height: 39px;
+    position: absolute;
+    background: url(../images/mayor_img2.png)no-repeat left;
+}
+#visual .staff > ul li:nth-child(2) a i {
+    background-position: -34px 0;
+}
+#visual .staff > ul li:nth-child(3) a i {
+    background-position: -68px 0;
 }

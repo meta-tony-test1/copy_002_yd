@@ -48,9 +48,72 @@
     #visual .v_map {
         width: calc(100% - 630px);
     }
+
     #visual .staff {
         width: 100%;
+        height: 210px;
+        margin-left: 0;
+        margin-top: 20px;
     }
+    #visual .staff .pre {
+        float: left;
+        width: calc(100% - 230px);
+        height: 100%;
+        padding: 65px 0 0 60px;
+    }
+    #visual .staff .pre:after{
+        position: absolute;
+        width: 197px;
+        height: 249px;
+        bottom: -65px;
+        right: 60px;
+        background: url(../images/mayor_img5_20220701.png)no-repeat center bottom;
+        background-size: 197px 249px;
+    }
+    #visual .staff .pre ul {
+        margin-top: 10px;
+        position: relative;
+        z-index: 10;
+        width: 345px;
+    }
+    #visual .staff .pre ul li {
+        float: left;
+        margin-right: 6px;
+    }
+    #visual .staff .pre p {
+    height: 58px;
+    background: url(../images/mayor_img6_20220701.png)no-repeat left bottom;
+    background-size:169px 58px;
+    }
+
+    #visual .staff > ul {
+        float: right;
+        height: 100%;
+        width: 230px;
+        padding: 0;
+
+    }
+    #visual .staff > ul li {
+        float: none;
+        width: 100%;
+        height: 70px;
+        align-items: center;
+        border-right: none;
+        border-bottom: 1px solid #cf5461;
+    }
+    #visual .staff > ul li a {
+        padding-left: 38px;
+        position: relative;
+    }
+    #visual .staff > ul li a i {
+        left: 0;
+        transform: translateY(-25%);
+    }
+    #visual .staff .pre:before{
+        right: auto;
+    }
+
+
 
 }
 
@@ -62,6 +125,12 @@
     /* contents */
     #visual .main_slide {
         width: 100%;
+        margin-top: 10px;
+        height: auto;
+    }
+    #visual .main_slide ul {
+        padding-top: 61%;
+        height: 0;
     }
     #visual .v_map {
         width: 100%;
@@ -109,6 +178,12 @@
         transform: rotate(45deg) translateX(170%);
         left: -14px;
     }
+    #visual .staff .pre:after {
+        right: 0;
+    }
+    #visual .staff .pre {
+        padding: 65px 0 0 35px;
+    }
 }
 
 /*===========================================================================================*/
@@ -119,6 +194,64 @@
     #title .wrap > p {
         background-image: url(../images/title7_20220701.png)
     }
+    #visual .staff {
+        width: 100%;
+        height: 360px;
+        margin-left: 0;
+        margin-top: 20px;
+    }
+    #visual .staff .pre {
+        float: none;
+        width: 100%;
+        height: 254px;
+    }
+    #visual .staff .pre:after{
+        bottom: -20px;
+        right: 30px;
+    }
+    #visual .staff .pre ul {
+        margin-top: 10px;
+        position: relative;
+        z-index: 10;
+        width: 345px;
+    }
+    #visual .staff .pre ul li {
+        float: left;
+        margin-right: 6px;
+
+    }
+    #visual .staff .pre p {
+        height: 58px;
+        background-size:169px 58px;
+    }
+
+    #visual .staff > ul {
+        position: relative;
+        z-index: 10;
+        float: right;
+        height: 106px;
+        width: 100%;
+        padding: 20px 0;
+
+
+    }
+    #visual .staff > ul li {
+        float: left;
+        width: calc(100% / 3);
+        height: 100%;
+        align-items: center;
+        border-bottom: none;
+        border-right:1px solid #cf5461;
+    }
+    #visual .staff > ul li a {
+        padding-left: 38px;
+        position: relative;
+    }
+    #visual .staff > ul li a i {
+        left: 0;
+        transform: translateY(-25%);
+    }
+
 
 }
 

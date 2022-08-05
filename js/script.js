@@ -85,21 +85,21 @@ $(".v_map .next").click(function(){
 /* s1-main_slide*/
 var ms_last = $(".main_slide li:last-child").index() + 1;
 var ms_no = 1;
-$(".main_slide .list_no").text(ms_no + "/" + (ms_last));
+$(".main_slide .list_no").text(ms_no + " /" + (ms_last));
 
 function back(){
     $(".main_slide li:last-child").prependTo($(".main_slide ul")).css({"opacity":0});
     $(".main_slide li:first-child").finish().animate({"opacity":1},300);
     ms_no--;
     if(ms_no <= 0){ ms_no = 6}
-    $(".main_slide .list_no").text(ms_no + "/" + (ms_last));
+    $(".main_slide .list_no").text(ms_no + " /" + (ms_last));
 }
 
 function go(){
     $(".main_slide li:first-child").finish()
     ms_no++;
     if(ms_no >=7){ ms_no = 1}
-    $(".main_slide .list_no").text(ms_no + "/" + (ms_last));
+    $(".main_slide .list_no").text(ms_no + " /" + (ms_last));
     $(".main_slide li:first-child").animate({"opacity":0},300,function(){
     $(this).appendTo($(".main_slide ul")).css({"opacity":1});
     })
@@ -113,3 +113,44 @@ $(".main_slide .prev").click(function(){
     back();
 })
 
+var timer = setInterval("go()",3000);
+
+$(".main_slide").hover(function(){
+    clearInterval(timer);
+},function(){
+    timer = setInterval("go()",3000);
+})
+
+$(".main_slide .stop").click(function(){
+    clearInterval(timer);
+    $(this).removeClass("on");
+    $(".main_slide .play").addClass("on");
+})
+$(".main_slide .play").click(function(){
+    timer = setInterval("go()",3000);
+    $(this).removeClass("on");
+    $(".main_slide .stop").addClass("on");
+})
+
+
+var i_no;
+function swing(){
+    $(".staff > ul li").eq(i_no).find("i").animate({"top":-6},300);
+    $(".staff > ul li").eq(i_no).find("i").animate({"top":2},300);
+    $(".staff > ul li").eq(i_no).find("i").animate({"top":-4},300);
+    $(".staff > ul li").eq(i_no).find("i").animate({"top":0},300);
+    console.log("swing")
+}
+
+$(".staff > ul li").hover(function(){
+    i_no = $(this).index();
+    swing();
+    move = setInterval("swing()",1400);
+    },function(){
+//    여러번 호버시 중복 실행됨.
+//    setInterval 진행 중간에 끊어야함.
+    console.log("off");
+    $(".staff > ul li").eq(i_no).find("i").finish();
+    clearInterval(move);
+    return false;
+    });
