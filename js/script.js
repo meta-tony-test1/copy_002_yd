@@ -81,6 +81,26 @@ $(".v_map .next").click(function(){
        $(this).css({"left":"0"}).children("li:first-child").appendTo($(".v_map ul"));
    })
 })
+/* s1-site map animate*/
+var sm_no;
+function sm_swing(){
+    $(".v_map li").eq(sm_no).find("i").animate({"top":-6},300);
+    $(".v_map li").eq(sm_no).find("i").animate({"top":2},300);
+    $(".v_map li").eq(sm_no).find("i").animate({"top":-4},300);
+    $(".v_map li").eq(sm_no).find("i").animate({"top":0},300);
+}
+
+$(".v_map li").hover(function(){
+    sm_no = $(this).index();
+    console.log(sm_no);
+    sm_swing();
+    move = setInterval("sm_swing()",1400);
+    },function(){
+    $(".v_map li").eq(i_no).find("i").finish();
+    clearInterval(move);
+    return false;
+    });
+
 
 /* s1-main_slide*/
 var ms_last = $(".main_slide li:last-child").index() + 1;
@@ -132,7 +152,7 @@ $(".main_slide .play").click(function(){
     $(".main_slide .stop").addClass("on");
 })
 
-
+/* 청사 안내 아이콘 움직임*/
 var i_no;
 function swing(){
     $(".staff > ul li").eq(i_no).find("i").animate({"top":-6},300);
