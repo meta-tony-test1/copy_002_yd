@@ -279,3 +279,12 @@ $(".qm_slide li").hover(function(){
     return false;
     });
 
+/* 날짜 메소드 */
+var now = new Date();
+var date=now.getDate();//날짜
+function getDate(){ //날짜 문자열 형식은 자유로운 편
+    var week = ['일', '월', '화', '수', '목', '금', '토'];
+    var dayOfWeek = week[new Date().getDay()];
+    return dayOfWeek;
+}
+console.log(date, getDate())

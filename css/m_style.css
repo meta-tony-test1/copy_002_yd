@@ -158,7 +158,9 @@
         width: 140px;
         float: left;
     }
-
+    #board .b_notice .notice_app > a span {
+        width: 140px;
+    }
     #board .b_notice .notice_app .notice_com {
         margin: 0;
 
@@ -607,6 +609,7 @@
         margin-bottom: 25px;
         margin-left: 10px;
     }
+
 
 
 }

@@ -843,9 +843,6 @@ header .gnb #detail .district .category a:hover {
 
 .blank { background: #ff0; height: 90px;}
 
-#cont {
-    background: url(../images/bg.png);
-}
 
 #title {
     padding-top: 20px;
@@ -1399,6 +1396,7 @@ left: -4px;
 /* 팝업존 슬라이드*/
 #board .wrap > .b_notice {
     width: 300px;
+    height: auto;
     background-color: transparent;
     float: left;
     margin-left: 10px;
@@ -1499,7 +1497,7 @@ left: -4px;
 }
 #board .b_notice .notice_app > a span {
     float: left;
-    width: 142px;
+    width: 145px;
     height: 135px;
     padding: 25px;
     border-radius: 10px;
@@ -1520,7 +1518,7 @@ left: -4px;
 #board .b_notice .notice_app .notice_com {
     background: #047c90 url(../images/no2.png)no-repeat right bottom;
     background-origin: content-box;
-    margin-right: 11px;
+    margin-right: 10px;
 }
 #board .b_notice .notice_app .notice_int {
     background: #1776c4 url(../images/no4.png)no-repeat right bottom;
@@ -1663,4 +1661,25 @@ left: -4px;
     width: 60px;
     height: 60px;
     background-image: url(../images/icon_qm.png)
+}
+
+#fi {
+    margin-top: 60px;
+}
+#fi .fi_title {
+    position: relative;
+}
+#fi .fi_title .btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 0;
+    background: #efe;
+}
+#fi .fi_title .btn button {
+    width: 42px;
+    height: 42px;
+    border-radius: 42px;
+    background: rgba(60,69,96,.5);
+
 }
