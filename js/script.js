@@ -75,6 +75,10 @@ $(".menu_list p").click(function(){
 
 /* content */
 /* s1_site_map */
+$(".v_map .prev").click(function(){
+   $(".v_map ul").css({"left":"-20%"}).children("li:last-child").prependTo($(".v_map ul"));
+   $(".v_map ul").stop().animate({"left":0},300);
+   })
 $(".v_map .next").click(function(){
    $(".v_map ul").stop().animate({"left":"-20%"},300,function(){
        $(this).css({"left":"0"}).children("li:first-child").appendTo($(".v_map ul"));
@@ -115,7 +119,6 @@ function back(){
 }
 
 function go(){
-    if(ms_stop >= 1){
         $(".main_slide li:first-child").finish()
         ms_no++;
         if(ms_no >=7){ ms_no = 1}
@@ -124,7 +127,6 @@ function go(){
         $(this).appendTo($(".main_slide ul")).css({"opacity":1});
         })
     }
-}
 
 $(".main_slide .next").finish().click(function(){
     go();
@@ -135,25 +137,32 @@ $(".main_slide .prev").click(function(){
 })
 
 var timer = setInterval("go()",3000);
-
+/*stop*/
 $(".main_slide").hover(function(){
     clearInterval(timer);
 },function(){
+    if(ms_stop >= 1){ //play 상대만 적용할 수 있는 변수
+    clearInterval(timer); // play의 인터벌 각각 재생 방지
     timer = setInterval("go()",3000);
+    }
+
 })
 
-$(".main_slide .stop").click(function(){
-    ms_stop = 0;
-    clearInterval(timer);
-    $(this).removeClass("on");
-    $(".main_slide .play").addClass("on");
-})
-$(".main_slide .play").click(function(){
-    ms_stop = 1;
-    timer = setInterval("go()",3000);
-    $(this).removeClass("on");
-    $(".main_slide .stop").addClass("on");
-})
+/* Play & Stop 연속 클릭시 재생 충돌 */
+        $(".main_slide .stop").click(function(){
+            ms_stop = 0;
+            clearInterval(timer);
+            $(this).removeClass("on");
+            $(".main_slide .play").addClass("on");
+        })
+        $(".main_slide .play").click(function(){
+            ms_stop = 1;
+            clearInterval(timer);
+            timer = setInterval("go()",3000);
+            $(this).removeClass("on");
+            $(".main_slide .stop").addClass("on");
+        })
+
 
 /* 청사 안내 아이콘 움직임*/
 var i_no;
@@ -238,3 +247,35 @@ $(".btn .play").click(function(){
     $(this).removeClass("on");
     $(".btn .stop").addClass("on");
 })
+
+/* s2_Quick Menu */
+$(".qm_slide .back").click(function(){
+    var qm_move = $(".qm_slide li:first-child").width();
+   $(".qm_slide ul").css({"left":-qm_move}).children("li:last-child").prependTo($(".qm_slide ul"));
+   $(".qm_slide ul").stop().animate({"left":0},300);
+   })
+$(".qm_slide .next").click(function(){
+    var qm_move = $(".qm_slide li:first-child").width();
+   $(".qm_slide ul").stop().animate({"left":-qm_move},300,function(){
+       $(this).css({"left":"0"}).children("li:first-child").appendTo($(".qm_slide ul"));
+   })
+})
+/* s1-site map animate*/
+var qm_no;
+function qm_swing(){
+    $(".qm_slide button").eq(sm_no).find("i").animate({"top":-6},300);
+    $(".qm_slide button").eq(sm_no).find("i").animate({"top":2},300);
+    $(".qm_slide button").eq(sm_no).find("i").animate({"top":-4},300);
+    $(".qm_slide button").eq(sm_no).find("i").animate({"top":0},300);
+}
+
+$(".qm_slide li").hover(function(){
+    qm_no = $(this).index();
+    qm_swing();
+    qm_move = setInterval("qm_swing()",1400);
+    },function(){
+    $(".qm_slide li").eq(qm_no).find("button").finish();
+    clearInterval(qm_move);
+    return false;
+    });
+
