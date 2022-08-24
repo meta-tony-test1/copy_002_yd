@@ -1246,25 +1246,25 @@
                 <div class="fi_title">
                     <h2><img src="images/fi1.png" alt="분야별정보"></h2>
                     <span class="btn">
-                        <button class="prev"><i class="xi-arrow-left"></i></button>
-                        <button class="stop"><i class="xi-stop"></i></button>
-                        <button class="play"><i class="xi-play"></i></button>
-                        <button class="next"><i class="xi-arrow-right"></i></button>
+                        <button class="prev" style="background-position:0 0"></button>
+                        <button class="stop" style="background-position:-42px 0"></button>
+                        <button class="play" style="background-position:-84px 0"></button>
+                        <button class="next" style="background-position:-126px 0"></button>
                     </span>
                 </div>
                 <div class="fi_menu">
                     <ul>
-                        <li><a href="#">보건·의료</a></li>
-                        <li><a href="#">교육</a></li>
-                        <li><a href="#">복지</a></li>
-                        <li><a href="#">산업경제</a></li>
-                        <li><a href="#">농·축산업</a></li>
-                        <li><a href="#">재난·안전·민방위</a></li>
-                        <li><a href="#">환경·상하수도</a></li>
-                        <li><a href="#">교통</a></li>
-                        <li><a href="#">식품·위생</a></li>
-                        <li><a href="#">생활·체육시설</a></li>
-                        <li><a href="#">부동산</a></li>
+                        <li class="on"><button>보건·의료</button></li>
+                        <li><button>교육</button></li>
+                        <li><button>복지</button></li>
+                        <li><button>산업경제</button></li>
+                        <li><button>농·축산업</button></li>
+                        <li><button>재난·안전·민방위</button></li>
+                        <li><button>환경·상하수도</button></li>
+                        <li><button>교통</button></li>
+                        <li><button>식품·위생</button></li>
+                        <li><button>생활·체육시설</button></li>
+                        <li><button>부동산</button></li>
                     </ul>
                 </div>
 
@@ -1284,17 +1284,13 @@
                             <div class="icon">
                                 <h3>보건사업안내</h3>
                                 <ul>
-                                    <li><i style="background:position:center"></i><a href="#">지역사회통합</a></li>
-                                    <li><i style="background:position:center"></i><a href="#">건강증진사업</a></li>
-                                    <li><i style="background:position:center"></i><a href="#">출산장려지원</a></li>
-                                    <li><i style="background:position:center"></i><a href="#">감염병관리</a></li>
-                                    <li><i style="background:position:center"></i><a href="#">국가건강검진</a></li>
-                                    <li><i style="background:position:center"></i><a href="#">사업</a></li>
-                                    <li><i style="background:position:center"></i><a href="#">맞춤형 건강</a></li>
-                                    <li><i style="background:position:center"></i><a href="#">관리</a></li>
-                                    <li><i style="background:position:center"></i><a href="#">모자보건사업</a></li>
-                                    <li><i style="background:position:center"></i><a href="#">의료비지원</a></li>
-                                    <li><i style="background:position:center"></i><a href="#">사업</a></li>
+                                    <li><a href="#"><i style="background-position: 0 -480px"></i>지역사회통합<br>건강증진사업</a></li>
+                                    <li><a href="#"><i style="background-position:-80px -480px"></i>출산장려지원</a></li>
+                                    <li><a href="#"><i style="background-position:-160px -480px"></i>감염병관리</a></li>
+                                    <li><a href="#"><i style="background-position:-240px -480px"></i>국가건강검진 <br>사업</a></li>
+                                    <li><a href="#"><i style="background-position:-320px -480px"></i>맞춤형 건강 <br>관리</a></li>
+                                    <li><a href="#"><i style="background-position:-400px -480px"></i>모자보건사업</a></li>
+                                    <li><a href="#"><i style="background-position:-480px -480px"></i>의료비지원 <br> 사업</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -1302,11 +1298,11 @@
                         <div class="box2">
                             <!-- 운영안내 operation -->
                             <div class="opr">
-                                <h3>보건소운영안내</h3>
+                                <h3><strong style="color:#cd2d65">보건소</strong>운영안내</h3>
                                 <p>현재 당직중인 병원 약국을 안내합니다.</p>
                                 <dl>
-                                    진료시간
-                                    AM. 09:00 ~ PM.18시(월~금)
+                                    <dt>진료시간</dt>
+                                    <dd>AM. 09:00 ~ PM.18시(월~금)</dd>
                                 </dl>
                                 <dl>
                                     <dt>휴무일</dt>
@@ -1327,22 +1323,84 @@
 
                             <div class="ntc">
                                 <!-- notice -->
-                                <h3>공지사항</h3>
-                                <li>코로나19 백신 접종에 따른 이상반응 안내사항 알림<i>04.26</i></li>
-                                <li>코로나19 관련 국민행동수칙<i>03.04</i></li>
-                                <li>액상형 전자담배 사용중단 강력 권고<i>10.25</i></li>
-                                <li>2019년 유료 인플루엔자 예방접종 안내<i>10.10</i></li>
-                                <li>2019년 어린이 및 임신부 무료 인플루엔자 예방접종 안내<i>10.08</i></li>
+                                <h3><strong style="color:#cd2d65">공지</strong>사항</h3>
+                                <ul>
+                                    <li>
+                                        <a href="#">코로나19 백신 접종에 따른 이상반응 안내사항 알림<i>04.26</i></a>
+                                    </li>
+                                    <li>
+                                        <a href="#">코로나19 관련 국민행동수칙<i>03.04</i></a>
+                                    </li>
+                                    <li>
+                                        <a href="#">액상형 전자담배 사용중단 강력 권고<i>10.25</i></a>
+                                    </li>
+                                    <li>
+                                        <a href="#">2019년 유료 인플루엔자 예방접종 안내<i>10.10</i></a>
+                                    </li>
+                                    <li>
+                                        <a href="#">2019년 어린이 및 임신부 무료 인플루엔자 예방접종 안내<i>10.08</i></a>
+                                    </li>
+                                </ul>
+                                <span class="more">
+                                    <span style="border-top: 25px solid #cd2d65;border-right: 25px solid #cd2d65;">
+                                        <em><i class="xi-plus-min"></i></em>
+                                    </span>
+                                </span>
                             </div>
                         </div>
                         <div class="box3">
                             <!-- 이달의 당직 병원 약국 on duty-->
                             <div class="od">
-
+                                <h3><strong style="color:#0E799A">이달의</strong> 당직 병원 약국</h3>
+                                <div class="od_tit">
+                                    <p>현재 당직중인 병원 약국을 안내합니다.</p>
+                                </div>
+                                <ul>
+                                    <li>영동병원<span>043-740-9000</span></li>
+                                    <li>일편단심약국<span>043-744-2390</span></li>
+                                    <li>사라약국<span>사라약국</span></li>
+                                </ul>
+                                <div class="ps">
+                                    <p>영동병원은 응급의료기관으로 지정되어 24시간 진료가 가능합니다.</p>
+                                </div>
+                                <span class="more">
+                                    <span style="border-top: 25px solid #0E799A;border-right: 25px solid #0E799A;">
+                                        <em><i class="xi-plus-min"></i></em>
+                                    </span>
+                                </span>
                             </div>
                             <!-- 금주 프로그램 This week -->
                             <div class="tw">
-
+                                <h3><strong style="color:#1a76c1">금주</strong> 프로그램</h3>
+                                <ul>
+                                    <li><a href="#">치매어르신을 섬기는 가족을 위한 "헤아림 가족교실" 안내<i>03.19</i></a></li>
+                                    <li><a href="#">소아아토피 피부염 관리 교육<i>05.22</i></a></li>
+                                </ul>
+                                <div class="week">
+                                    <ul class="day">
+                                        <li>월</li>
+                                        <li>화</li>
+                                        <li>수</li>
+                                        <li>목</li>
+                                        <li>금</li>
+                                        <li>토</li>
+                                        <li>일</li>
+                                    </ul>
+                                    <ul class="date">
+                                        <li>00</li>
+                                        <li>00</li>
+                                        <li>00</li>
+                                        <li>00</li>
+                                        <li>00</li>
+                                        <li>00</li>
+                                        <li>00</li>
+                                    </ul>
+                                </div>
+                                <span class="more">
+                                    <span style="border-top: 25px solid #1a76c1;border-right: 25px solid #1a76c1;">
+                                        <em><i class="xi-plus-min"></i></em>
+                                    </span>
+                                </span>
                             </div>
                         </div>
                     </div>
