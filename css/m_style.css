@@ -711,17 +711,38 @@
         height: 380px;
         padding: 25px 40px;
     }
+    #fi .fi_cont .me .box1 .icon h3 {
+        font-size: 16px;
+        line-height: 16px;
+        margin-bottom: 20px;
+        font-weight: normal;
+    }
     #fi .fi_cont .me .box1 .icon ul li {
         padding: 0;
         width: auto;
         float: none;
         line-height: 35px;
+        border: 1px solid #dedede;
+        font-size: 14px;
+        border-radius: 4px;
+        margin-bottom: 5px;
+    }
+    #fi .fi_cont .me .box1 .icon ul li:hover {
+        background: #385dbb;
+        color: #fff;
+    }
+    #fi .fi_cont .me .box1 .icon ul li br {
+        display: none;
     }
     #fi .fi_cont .me .box1 .icon ul li:after {
         display: none;
     }
     #fi .fi_cont .me .box1 .icon ul li i {
         display: none;
+    }
+    #fi .fi_cont .me .box2 .opr > span a {
+        width: calc(50% - 3px);
+        border-radius: 6px;
     }
 }
 

@@ -317,3 +317,11 @@ for (n = 0; n <= 6; n++) {
     }
     $(".date li").eq(n).text(day_list);
 }
+
+$(".fi_menu li").click(function(){
+    var open_no = $(this).index();
+    $(".fi_menu li").removeClass("off");
+    $(this).addClass("on").siblings("li").removeClass("on").eq(open_no - 1).addClass("off");
+    $(".fi_cont > div").eq(open_no).addClass("on").siblings("div").removeClass("on");
+    console.log(open_no);
+})

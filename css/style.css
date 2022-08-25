@@ -1720,7 +1720,7 @@ left: -4px;
 #fi .fi_menu ul li.on {
     background: #1b3f91;
 }
-#fi .fi_menu ul li.on:after {
+#fi .fi_menu ul li.off:after, #fi .fi_menu ul li.on:after {
     display: none;
 }
 #fi .fi_menu ul li:after {
@@ -1747,10 +1747,30 @@ left: -4px;
 #fi .fi_cont {
     position: relative;
 }
-#fi .fi_cont > div {}
+#fi .fi_cont > div {
+    display: none;
+    margin-top: 10px;
+}
+#fi .fi_cont > div:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+#fi .fi_cont > div > div {
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+}
+#fi .fi_cont > div.on {
+    display: block;
+}
 #fi .fi_cont > .lr {
     display: none;
 }
+
+
+
+
 /* 보건 의료 공통 */
 #fi .fi_cont .me {
     margin-top: 10px;
@@ -2125,4 +2145,84 @@ left: -4px;
 }
 #fi .fi_cont .me .box3 .tw .week .date {
     margin-top: 20px;
+}
+
+/* 교육 */
+#fi .fi_cont .edu {
+}
+#fi .fi_cont .edu > div {
+    background: #fff;
+    width: calc(40% - 10px);
+    margin-right: 10px;
+    height: 614px;
+    float: left;
+}
+#fi .fi_cont .edu > .box3 {
+    width: 20%;
+    margin-right: 0;
+}
+
+/* 복지 */
+#fi .fi_cont .wf {
+    height: 614px;
+}
+#fi .fi_cont .wf > div {
+    background: #fff;
+    height: 100%;
+    float: left;
+    width: 50%;
+}
+#fi .fi_cont .wf .box1 {
+    width: calc(50% - 10px);
+    margin-right: 10px;
+}
+
+/* 산업경제 */
+#fi .fi_cont .ids > div {
+    background: #eee;
+    width: calc(25% - 20px);
+    height: 614px;
+}
+#fi .fi_cont .ids .box1 {
+    width: calc(50% + 20px);
+    margin: 0 calc(25% - 10px);
+}
+#fi .fi_cont .ids .box2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+#fi .fi_cont .ids .box3 {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+/* 농축산 */
+#fi .fi_cont .ag > div {
+    background: #fff;
+    width: calc(25% - 20px);
+    height: 614px;
+}
+#fi .fi_cont .ag .box1 {
+    width: calc(50% + 20px);
+    margin: 0 calc(25% - 10px);
+}
+#fi .fi_cont .ag .box2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+#fi .fi_cont .ag .box3 {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+/* 재난 안전 */
+#fi .fi_cont .sf > ul li {
+    background: #fff;
+    float: left;
+    width: 25%;
+    height: 614px;
 }
