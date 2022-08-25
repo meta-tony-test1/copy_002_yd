@@ -54,12 +54,18 @@ $(".head_icon button").click(function(){
 /* 모바일 메뉴 */
 $(".head_icon > a").click(function(){
     $("html").css({"overflow-y":"hidden"});
-    $("#m_menu").addClass("on");
+    $("#m_menu").css({"left":"auto","right":-300,"opacity":0});
+    $("#m_menu").animate({"left":"auto","right":0,"opacity":1.0},300);
+//    $("#m_menu").addClass("on");
     $(".m_modal").addClass("on");
 })
 $(".m_modal").click(function(){
     $("html").css({"overflow-y":"auto"});
-    $("#m_menu").removeClass("on");
+//    $("#m_menu").removeClass("on");
+    $("#m_menu").animate({"right":-300,"opacity":0},300,function(){
+    $("#m_menu").css({"left":-300,"right":"auto"});
+
+    });
     $(".m_modal").removeClass("on");
 })
 $(".menu_lang p").click(function(){

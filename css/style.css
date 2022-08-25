@@ -654,13 +654,15 @@ header .gnb #detail .district .category a:hover {
     width: 300px;
     height: 100%;
     top: 0;
-    right: -300px;
+    left: -300px;
     overflow: auto;
-    transition:0.5s;
+/*    transition:0.5s;*/
 }
+/* right 사용시 pc브라우저에 안보여도 실제 모바일에서는 움직이는 이슈 발생
 #m_menu.on {
     right: 0;
 }
+*/
 #m_menu .menu_top {
     padding: 10px 0;
     background: #fff;
