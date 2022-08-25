@@ -49,6 +49,9 @@ body {
     color:#494949;
     font-family:'Malgun Gothic';
     overflow:hidden;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
 }
 a {
     text-decoration: none;
@@ -58,6 +61,8 @@ a {
 button {
     border: none;
     background: none;
+    color: inherit;
+    font-size: inherit;
 }
 img {
     vertical-align: middle;
@@ -65,6 +70,7 @@ img {
 /* common */
 body, html {
     overflow-x: hidden;
+    width: 100%;
 
 }
 .wrap {
@@ -1691,21 +1697,23 @@ left: -4px;
 }
 #fi .fi_menu {
     background: #3b62bb;
-    padding: 15px 30px;
+    padding: 0;
     margin-top: 23px;
     border-radius: 10px;
-
+    position: relative;
 }
 #fi .fi_menu ul {
     color: #fff;
     text-align: center;
     position: relative;
-    padding-left: 240px;
+    padding: 15px 0 0 240px;
+    font-size: 16px;
 }
 #fi .fi_menu ul li {
     border-radius: 10px;
     float: left;
     position: relative;
+
 }
 #fi .fi_menu ul li.on {
     background: #1b3f91;
@@ -1726,17 +1734,21 @@ left: -4px;
     display: none;
 }
 #fi .fi_menu ul li button {
-    color: inherit;
-    padding: 0 23px;
+    white-space: nowrap;
+    padding: 0 19px;
     line-height: 45px;
 }
 #fi .fi_menu ul li button:focus {
     outline: 2px solid #000;
 }
-
 /* 콘텐츠 */
+#fi .fi_cont {
+    position: relative;
+}
 #fi .fi_cont > div {}
-
+#fi .fi_cont > .lr {
+    display: none;
+}
 /* 보건 의료 공통 */
 #fi .fi_cont .me {
     margin-top: 10px;
@@ -1768,8 +1780,6 @@ left: -4px;
     top: 0;
     right: 0;
 }
-
-
 #fi .fi_cont .more span {
     display: block;
     width: 0;
@@ -2104,6 +2114,9 @@ left: -4px;
     text-align: center;
     float: left;
     width: calc(100% / 7);
+}
+#fi .fi_cont .me .box3 .tw .week ul li:first-child {
+    color: #d80a16;
 }
 #fi .fi_cont .me .box3 .tw .week .day {
 

@@ -53,12 +53,12 @@ $(".head_icon button").click(function(){
 })
 /* 모바일 메뉴 */
 $(".head_icon > a").click(function(){
-    $("html").css({"overflow":"hidden"});
+    $("html").css({"overflow-y":"hidden"});
     $("#m_menu").addClass("on");
     $(".m_modal").addClass("on");
 })
 $(".m_modal").click(function(){
-    $("html").css({"overflow":"auto"});
+    $("html").css({"overflow-y":"auto"});
     $("#m_menu").removeClass("on");
     $(".m_modal").removeClass("on");
 })
@@ -100,7 +100,7 @@ $(".v_map li").hover(function(){
     sm_swing();
     move = setInterval("sm_swing()",1400);
     },function(){
-    $(".v_map li").eq(i_no).find("i").finish();
+    $(".v_map li").eq(sm_no).find("i").finish();
     clearInterval(move);
     return false;
     });
@@ -184,7 +184,7 @@ $(".staff > ul li").hover(function(){
 //    setInterval 진행 중간에 끊어야함.
     $(".staff > ul li").eq(i_no).find("i").finish();
     clearInterval(move);
-    return false;
+    /*return false;*/
     });
 
 $(".b_info li").click(function(){
@@ -208,7 +208,6 @@ function ns_back(){
     if(ns_no <= 0){ ns_no = 12}
     $(".slide_no b").text(ns_no);
 }
-
 function ns_go(){
     $(".notice_slide li:first-child").finish()
     ns_no++;
@@ -218,7 +217,6 @@ function ns_go(){
     $(this).appendTo($(".notice_slide ul")).css({"opacity":1});
     })
 }
-
 $(".notice_slide .next").finish().click(function(){
     ns_go();
 })
@@ -228,7 +226,6 @@ $(".notice_slide .prev").click(function(){
 })
 
 var ns_timer = setInterval("ns_go()",3000);
-
 $(".notice_slide ul").hover(function(){
     clearInterval(ns_timer);
 },function(){
@@ -236,7 +233,6 @@ $(".notice_slide ul").hover(function(){
     ns_timer = setInterval("ns_go()",3000);
     }
 })
-
 $(".btn .stop").click(function(){
     ns_stop = 0;
     clearInterval(ns_timer);
@@ -250,6 +246,26 @@ $(".btn .play").click(function(){
     $(".btn .stop").addClass("on");
 })
 
+/* s2-quick slide 하단 아이콘*/
+var qs_no;
+function qs_swing(){
+    $(".notice_app a").eq(qs_no).find("span").animate({"background-position-y":"85%"},300);
+    $(".notice_app a").eq(qs_no).find("span").animate({"background-position-y":"105%"},300);
+    $(".notice_app a").eq(qs_no).find("span").animate({"background-position-y":"90%"},300);
+    $(".notice_app a").eq(qs_no).find("span").animate({"background-position-y":"100%"},300);
+    console.log("swing");
+}
+$(".notice_app a").hover(function(){
+    console.log("this");
+    qs_no = $(this).index();
+    qs_swing();
+    qs_move = setInterval("qm_swing()",1400);
+    },function(){
+    $(".notice_app a").eq(qs_no).find("span").finish();
+    clearInterval(qs_move);
+    });
+
+
 /* s2_Quick Menu */
 $(".qm_slide .back").click(function(){
     var qm_move = $(".qm_slide li:first-child").width();
@@ -262,48 +278,36 @@ $(".qm_slide .next").click(function(){
        $(this).css({"left":"0"}).children("li:first-child").appendTo($(".qm_slide ul"));
    })
 })
-/* s1-site map animate*/
+/* s2-quick silde animate*/
 var qm_no;
 function qm_swing(){
-    $(".qm_slide button").eq(sm_no).find("i").animate({"top":-6},300);
-    $(".qm_slide button").eq(sm_no).find("i").animate({"top":2},300);
-    $(".qm_slide button").eq(sm_no).find("i").animate({"top":-4},300);
-    $(".qm_slide button").eq(sm_no).find("i").animate({"top":0},300);
+    $(".qm_slide li").eq(qm_no).find("i").animate({"top":-6},300);
+    $(".qm_slide li").eq(qm_no).find("i").animate({"top":2},300);
+    $(".qm_slide li").eq(qm_no).find("i").animate({"top":-4},300);
+    $(".qm_slide li").eq(qm_no).find("i").animate({"top":0},300);
 }
-
 $(".qm_slide li").hover(function(){
     qm_no = $(this).index();
     qm_swing();
     qm_move = setInterval("qm_swing()",1400);
     },function(){
-    $(".qm_slide li").eq(qm_no).find("button").finish();
+    $(".qm_slide li").eq(qm_no).find("i").finish();
     clearInterval(qm_move);
     return false;
     });
 
-/* 날짜 메소드 */
-var now = new Date();
-var date=now.getDate();// 요일
-
+/* 주일 달력 메소드 */
 var n;
-for(n=0; n <= 6; n++ ){
-var date_no = new Date().getDay();
-
-
-    var date_cc = date_no + n - 2;
-    /* 수정 필요!!!!!!!!!! */
-    if(date_cc >= 8) { date_cc = 1}else if(date_cc <= 0){ date_cc + 7};
-
-
-    function getDate(){ //날짜 문자열
-    var week = ['일', '월', '화', '수', '목', '금', '토'];
-//    var dayOfWeek = week[new Date().getDay() + n];
-    var dayOfWeek = week[date_cc];
-    return dayOfWeek;
+var today = new Date().getDate();
+var CDate = new Date();
+var date_no = new Date().getDay(); //날짜 순번; 1번째 일요일
+var prevLast = new Date(CDate.getFullYear(), CDate.getMonth(), 0).getDate(); //지난 달의 마지막 날
+var thisLast = new Date(CDate.getFullYear(), CDate.getMonth() + 1, 0).getDate(); //이번 달의 마지막 날
+for (n = 0; n <= 6; n++) {
+    var day_list = today - date_no + n;//n번째 금일 날짜 - 요일 순번 + n번째 li;
+    if(day_list <= 0){ var day_list = day_list + prevLast //전월 날짜
+    }else if (day_list > thisLast ) {
+        var day_list = day_list - thisLast; // 다음달 시작
     }
-
-    $(".day li").eq(n).text(getDate());
-    $(".date li").eq(n).text(date + n - 2);
-    console.log(date, date_no + "수요일", date_cc);
+    $(".date li").eq(n).text(day_list);
 }
-
