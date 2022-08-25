@@ -53,10 +53,12 @@ $(".head_icon button").click(function(){
 })
 /* 모바일 메뉴 */
 $(".head_icon > a").click(function(){
+    $("html").css({"overflow":"hidden"});
     $("#m_menu").addClass("on");
     $(".m_modal").addClass("on");
 })
 $(".m_modal").click(function(){
+    $("html").css({"overflow":"auto"});
     $("#m_menu").removeClass("on");
     $(".m_modal").removeClass("on");
 })
@@ -281,10 +283,27 @@ $(".qm_slide li").hover(function(){
 
 /* 날짜 메소드 */
 var now = new Date();
-var date=now.getDate();//날짜
-function getDate(){ //날짜 문자열 형식은 자유로운 편
+var date=now.getDate();// 요일
+
+var n;
+for(n=0; n <= 6; n++ ){
+var date_no = new Date().getDay();
+
+
+    var date_cc = date_no + n - 2;
+    /* 수정 필요!!!!!!!!!! */
+    if(date_cc >= 8) { date_cc = 1}else if(date_cc <= 0){ date_cc + 7};
+
+
+    function getDate(){ //날짜 문자열
     var week = ['일', '월', '화', '수', '목', '금', '토'];
-    var dayOfWeek = week[new Date().getDay()];
+//    var dayOfWeek = week[new Date().getDay() + n];
+    var dayOfWeek = week[date_cc];
     return dayOfWeek;
+    }
+
+    $(".day li").eq(n).text(getDate());
+    $(".date li").eq(n).text(date + n - 2);
+    console.log(date, date_no + "수요일", date_cc);
 }
-console.log(date, getDate())
+

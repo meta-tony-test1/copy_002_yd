@@ -82,6 +82,7 @@ ul:after, .wrap:after, section:after {
     width: 100%;
     height: 100%;
     position: absolute;
+    z-index: 50;
     top: 0;
     left: 0;
 }
@@ -92,7 +93,7 @@ ul:after, .wrap:after, section:after {
     position: absolute;
     top: 0;
     left: 0;
-    z-index: 1;
+    z-index: 115;
 }
 
 /* header */
@@ -100,7 +101,7 @@ header {
     text-align: center;
     font-size: 12px;
     position: relative;
-    z-index: 1;
+    z-index: 110;
 }
 header .wrap {
     width: min(1240px, 100%);
@@ -418,6 +419,7 @@ header .gnb #detail {
     top: 90px;
     overflow: hidden;
     height: 0;
+
     z-index: 100;
 }
 header .gnb #detail .wrap > div {
@@ -463,7 +465,7 @@ header .gnb #detail .wrap > div:nth-child(6) {
 }
 header .gnb #detail > div .title h3 {
     line-height: 74px;
-    font-size: 24px;
+    font-size: 23px;
     font-weight: 800;
     position: relative;
 }
@@ -642,7 +644,7 @@ header .gnb #detail .district .category a:hover {
 #m_menu {
     background: #494949;
     position: absolute;
-    z-index: 10;
+    z-index: 120;
     width: 300px;
     height: 100%;
     top: 0;
@@ -1666,20 +1668,446 @@ left: -4px;
 #fi {
     margin-top: 60px;
 }
+#fi .wrap {
+    width: min(1480px, 100vw);
+}
 #fi .fi_title {
     position: relative;
+    text-align: center;
 }
 #fi .fi_title .btn {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     right: 0;
-    background: #efe;
 }
 #fi .fi_title .btn button {
     width: 42px;
     height: 42px;
     border-radius: 42px;
-    background: rgba(60,69,96,.5);
+    background-color: rgba(60,69,96,.5);
+    background-image: url(../images/btn_fi.png);
+    background-repeat: no-repeat;
+}
+#fi .fi_menu {
+    background: #3b62bb;
+    padding: 15px 30px;
+    margin-top: 23px;
+    border-radius: 10px;
 
+}
+#fi .fi_menu ul {
+    color: #fff;
+    text-align: center;
+    position: relative;
+    padding-left: 240px;
+}
+#fi .fi_menu ul li {
+    border-radius: 10px;
+    float: left;
+    position: relative;
+}
+#fi .fi_menu ul li.on {
+    background: #1b3f91;
+}
+#fi .fi_menu ul li.on:after {
+    display: none;
+}
+#fi .fi_menu ul li:after {
+    content: '';
+    position: absolute;
+    top: calc(50% - 6px);
+    right: 1px;
+    width: 1px;
+    height: 12px;
+    background: rgba(255,255,255, 0.5);
+}
+#fi .fi_menu ul li:last-child:after {
+    display: none;
+}
+#fi .fi_menu ul li button {
+    color: inherit;
+    padding: 0 23px;
+    line-height: 45px;
+}
+#fi .fi_menu ul li button:focus {
+    outline: 2px solid #000;
+}
+
+/* 콘텐츠 */
+#fi .fi_cont > div {}
+
+/* 보건 의료 공통 */
+#fi .fi_cont .me {
+    margin-top: 10px;
+    position: relative;
+}
+#fi .fi_cont .me > div > div {
+    border-radius: 10px;
+    background: #fff;
+    position: relative;
+    overflow: hidden;
+}
+#fi .fi_cont .me > div > div:nth-child(1){
+    height: 374px;
+}
+#fi .fi_cont .me > div > div:nth-child(2){
+    margin-top: 10px;
+    height: 230px;
+}
+#fi .fi_cont .me > div > div h3 {
+    font-size: 23px;
+    line-height: 38px;
+    margin-bottom: 5px;
+    color: #1e1e1e;
+}
+#fi .fi_cont .more{
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    top: 0;
+    right: 0;
+}
+
+
+#fi .fi_cont .more span {
+    display: block;
+    width: 0;
+    height:0;
+    border-bottom: 25px solid transparent;  /*사이즈는 중점과의 거리 */
+    border-left: 25px solid transparent;
+    border-top: 25px solid #eee;
+    border-right: 25px solid #eee;
+}
+#fi .fi_cont .more span em{
+    display: block;
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    top: 4px;
+    right: 4px;
+}
+#fi .fi_cont .more span em i {
+    cursor: pointer;
+    color: #fff;
+    position: relative;
+    font-size: 24px;
+    height:23px;/* xeicon 회전시 중앙 맞추기 위해 사용*/
+    width: 24px;
+    text-align: center;
+}
+#fi .fi_cont .more span em i:hover {
+    transition:2s;
+    transform: rotate(720deg);
+}
+#fi .fi_cont .more em:hover {
+    content: '';
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    width: 24px;
+    height: 24px;
+    outline:1px dotted #000;
+}
+/* 보건 의료 */
+#fi .fi_cont .me .box1{
+    width: calc(50% + 40px);
+    padding: 0 10px;
+    margin:0 calc(25% - 20px);
+}
+#fi .fi_cont .me .box1 > div {
+    border-radius: 10px;
+}
+#fi .fi_cont .me .box1 .vs {
+    background: transparent;
+    text-align: center;
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    border: 6px solid #fff;
+    padding-top: 55px;
+}
+#fi .fi_cont .me .box1 .icon{
+}
+#fi .fi_cont .me .box1 .icon h3 {
+    font-size: 23px;
+    color: #1e1e1e;
+    text-align: center;
+    font-weight: 600;
+}
+#fi .fi_cont .me .box1 .vs p {
+    margin-top: 10px;
+    color: #637486;
+}
+#fi .fi_cont .me .box1 .icon {
+    padding-top: 30px;
+    text-align: center;
+    background: #fff;
+    margin-top: 10px;
+}
+#fi .fi_cont .me .box1 .icon ul {
+    margin-top: 10px;
+}
+#fi .fi_cont .me .box1 .icon ul li {
+    float: left;
+    position: relative;
+    padding-top: 80px;
+    width: calc(100% / 7 );
+}
+#fi .fi_cont .me .box1 .icon ul li:after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 1px;
+    height: 80px;
+    border-right: 1px dotted #c1c4cc;
+}
+#fi .fi_cont .me .box1 .icon ul li:last-child:after {
+    display: none;
+}
+#fi .fi_cont .me .box1 .icon ul li i {
+    background-image: url(../images/icon_me.png);
+    background-repeat: no-repeat;
+    background-color: #fff;
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%);
+}
+#fi .fi_cont .me .box2 {
+    position: absolute;
+    width: calc(25% - 20px);
+    top: 0;
+    left: 0;
+}
+
+#fi .fi_cont .me .box2 > div {
+    padding: 25px 30px 0 30px;
+
+}
+#fi .fi_cont .me .box2 .opr{
+    height: 374px;
+}
+#fi .fi_cont .me .box2 .opr dl:nth-of-type(3):after{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    color: #7d7d7d;
+    width: 69px;
+    height: 73px;
+    background:#fff url(../images/me3.png)no-repeat right bottom;
+
+}
+#fi .fi_cont .me .box2 .opr p {
+    line-height: 24px;
+    margin-bottom: 10px;
+}
+#fi .fi_cont .me .box2 .opr dl {
+    position: relative;
+    padding-left: 8px;
+    margin: 10px 0;
+}
+#fi .fi_cont .me .box2 .opr dt {
+    line-height: 24px;
+    color: #1e1e1e;
+}
+#fi .fi_cont .me .box2 .opr dl:before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 0;
+    background: #1e1e1e;
+    width: 3px;
+    height: 3px;
+}
+#fi .fi_cont .me .box2 .opr dd {}
+#fi .fi_cont .me .box2 .opr > span{
+    display: block;
+    margin-top: 25px;
+}
+#fi .fi_cont .me .box2 .opr > span:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+#fi .fi_cont .me .box2 .opr > span a {
+    float: left;
+    width: 142px;
+    color: #fff;
+    text-align: center;
+    line-height: 47px;
+    background: #324961;
+    border-radius: 10px;
+}
+#fi .fi_cont .me .box2 .opr > span a:nth-child(1){
+    background: #cd2d65;
+}
+#fi .fi_cont .me .box2 .opr > span a:nth-child(2){
+    float: right;
+}
+/* notice */
+
+#fi .fi_cont .me .box2 .ntc ul {
+    margin-top: 10px;
+}
+#fi .fi_cont .me .box2 .ntc ul li {
+}
+#fi .fi_cont .me .box2 .ntc ul li a {
+    display: block;
+    position: relative;
+    width: 100%;
+    line-height: 26px;
+    padding-left: 10px;
+    padding-right: 60px;
+    margin: 5px 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+#fi .fi_cont .me .box2 .ntc ul li i {
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: #a2a2a2;
+}
+#fi .fi_cont .me .box2 .ntc ul li a:before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 0;
+    background: #1e1e1e;
+    width: 3px;
+    height: 3px;
+}
+#fi .fi_cont .me .box2 .ntc ul li a:hover:after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: calc(100% - 60px);
+    height: calc(100% - 3px);
+    border:1px dotted #000;
+}
+#fi .fi_cont .me .box2 .ntc ul li:hover{
+    text-decoration: underline;
+}
+
+#fi .fi_cont .me .box3 {
+    position: absolute;
+    width: calc(25% - 20px);
+    top: 0;
+    right: 0;
+}
+#fi .fi_cont .me .box3 > div {
+    padding: 25px 30px 0 30px;
+}
+#fi .fi_cont .me .box3 .od {
+    height: 302px;
+}
+#fi .fi_cont .me .box3 .od .od_tit p {
+    color: #7d7d7d;
+}
+#fi .fi_cont .me .box3 .od ul {
+    margin-top: 20px;
+}
+
+#fi .fi_cont .me .box3 .od ul li {
+    display: block;
+    position: relative;
+    width: 100%;
+    line-height: 26px;
+    padding-left: 10px;
+    padding-right: 60px;
+    margin: 5px 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+#fi .fi_cont .me .box3 .od ul li span {
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: #a2a2a2;
+    padding-left: 24px;
+    background: url(../images/icon_call.png)no-repeat left center;
+}
+#fi .fi_cont .me .box3 .od ul li:before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 0;
+    background: #1e1e1e;
+    width: 3px;
+    height: 3px;
+}
+#fi .fi_cont .me .box3 .od .ps {
+    border-top: 1px dashed #aaa;
+    padding-top: 20px;
+    margin-top: 20px;
+}
+#fi .fi_cont .me .box3 .od .ps p {
+    color: #777;
+    padding-left: 24px;
+    line-height: 1.4;
+    font-size: 14px;
+    background: url(../images/icon_cau.png)no-repeat left top;
+}
+
+#fi .fi_cont .me .box3 .tw {
+    height: 302px;
+}
+
+#fi .fi_cont .me .box3 .tw > ul {
+    margin-top: 10px;
+}
+#fi .fi_cont .me .box3 .tw > ul li {
+}
+#fi .fi_cont .me .box3 .tw > ul li a {
+    display: block;
+    position: relative;
+    width: 100%;
+    line-height: 26px;
+    padding-right: 60px;
+    margin: 5px 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+#fi .fi_cont .me .box3 .tw > ul li i {
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: #a2a2a2;
+}
+#fi .fi_cont .me .box3 .tw > ul li a:hover:after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: calc(100% - 60px);
+    height: calc(100% - 3px);
+    border:1px dotted #000;
+}
+#fi .fi_cont .me .box3 .tw > ul li:hover{
+    text-decoration: underline;
+}
+
+
+
+#fi .fi_cont .me .box3 .tw .week {
+    margin-top: 40px;
+}
+#fi .fi_cont .me .box3 .tw .week ul li {
+    text-align: center;
+    float: left;
+    width: calc(100% / 7);
+}
+#fi .fi_cont .me .box3 .tw .week .day {
+
+}
+#fi .fi_cont .me .box3 .tw .week .date {
+    margin-top: 20px;
 }
