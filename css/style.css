@@ -102,7 +102,7 @@ ul:after, .wrap:after, section:after {
     z-index: 115;
 }
 
-/* header */
+/* header & footer */
 header {
     text-align: center;
     font-size: 12px;
@@ -645,6 +645,55 @@ header .gnb #detail .district .category a:after {
 }
 header .gnb #detail .district .category a:hover {
     outline: 1px solid #04366c;
+}
+
+/* footer */
+footer {
+    background: #3d4049;
+    color: #fff;
+    padding: 35px 0;
+}
+footer .wrap > span {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+footer .wrap > span img {
+    margin-left: 10px;
+}
+footer ul li {
+    float: left;
+    line-height: 24px;
+    padding: 0 16px;
+    position: relative;
+}
+footer ul li:first-child {
+    padding-left: 0;
+}
+footer ul li:last-child {
+    padding-right: 0;
+}
+footer ul li:after {
+    content: '|';
+    color: #5d5f67;
+    font-size: 10px;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+footer ul li:last-child:after {
+    display: none;
+}
+
+footer address {
+    color: #9d9ea1;
+    margin-top: 20px;
+    font-size: 14px;
+}
+footer p {
+    color: #9d9ea1;
+    margin-top: 5px;
+    font-size: 14px;
 }
 /* 모바일 메뉴 */
 #m_menu {
@@ -1684,6 +1733,7 @@ left: -4px;
     text-align: center;
 }
 #fi .fi_title .btn {
+    display: none;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -1696,6 +1746,10 @@ left: -4px;
     background-color: rgba(60,69,96,.5);
     background-image: url(../images/btn_fi.png);
     background-repeat: no-repeat;
+    display: none;
+}
+#fi .fi_title .btn button.on {
+    display: inline;
 }
 #fi .fi_menu {
     background: #3b62bb;
@@ -1737,6 +1791,7 @@ left: -4px;
 }
 #fi .fi_menu ul li button {
     white-space: nowrap;
+    width: 100%;
     padding: 0 19px;
     line-height: 45px;
 }
@@ -1750,6 +1805,7 @@ left: -4px;
 #fi .fi_cont > div {
     display: none;
     margin-top: 10px;
+
 }
 #fi .fi_cont > div:after {
     content: '';
@@ -1757,6 +1813,12 @@ left: -4px;
     clear: both;
 }
 #fi .fi_cont > div > div {
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+}
+#fi .fi_cont > div > ul li {
+    background: #fff;
     border-radius: 10px;
     position: relative;
     overflow: hidden;
@@ -2179,7 +2241,7 @@ left: -4px;
 
 /* 산업경제 */
 #fi .fi_cont .ids > div {
-    background: #eee;
+    background: #fff;
     width: calc(25% - 20px);
     height: 614px;
 }
@@ -2223,6 +2285,176 @@ left: -4px;
 #fi .fi_cont .sf > ul li {
     background: #fff;
     float: left;
-    width: 25%;
+    width: calc(25% - 9px);
+    margin-right: 12px;
     height: 614px;
 }
+#fi .fi_cont .sf > ul li:last-child {
+    margin-right: 0;
+}
+/* 환경, 상하수도*/
+#fi .fi_cont .eco > div {}
+
+#fi .fi_cont .eco > div {
+    background: #fff;
+    width: calc(25% - 20px);
+    height: 614px;
+}
+#fi .fi_cont .eco .box1 {
+    width: calc(50% + 20px);
+    margin: 0 calc(25% - 10px);
+}
+#fi .fi_cont .eco .box2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+#fi .fi_cont .eco .box3 {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+/*교통*/
+#fi .fi_cont .trf > ul li {
+    background: #fff;
+    float: left;
+    width: calc(25% - 9px);
+    margin-right: 12px;
+    height: 614px;
+}
+#fi .fi_cont .trf > ul li:last-child {
+    margin-right: 0;
+}
+
+/*식품위생*/
+#fi .fi_cont .fd {
+    margin-top: 0;
+}
+#fi .fi_cont .fd > ul li {
+    width: calc(20% - 8px);
+    margin-right: 10px;
+    height: 302px;
+    float: left;
+    margin-top: 10px;
+}
+#fi .fi_cont .fd > ul li:nth-child(5n) {
+    margin-right: 0;
+}
+/*생활체육시설*/
+#fi .fi_cont .lf > div{
+    border-radius: 10px;
+    border:5px solid #fff;
+    height: 614px;
+}
+/*부동산*/
+#fi .fi_cont .re {
+    margin-top: 0;
+}
+#fi .fi_cont .re > ul li {
+    width: calc(25% - 9px);
+    height: 302px;
+    float: left;
+    margin-right: 12px;
+    margin-top: 10px;
+}
+#fi .fi_cont .re > ul li:nth-child(4n) {
+    margin-right: 0;
+}
+
+/* 콘텐츠 하단 버튼 */
+#fi .fi_swich {
+    position: relative;
+    height: 60px;
+}
+#fi .fi_swich .btn{
+    position: absolute;
+    left: calc(50% - 21px);
+    bottom: 0;
+}
+#fi .fi_swich .btn button {
+    width: 42px;
+    height: 42px;
+    background: rgba(40,40,40,.5);
+    color: #fff;
+    font-size: 30px;
+    border-radius: 30px;
+    display: none;
+}
+#fi .fi_swich .btn button i {
+    position: relative;
+    top: 1px;
+    left: 1px;
+}
+#fi .fi_swich .btn .play i {
+    left: 2px;
+}
+#fi .fi_swich .btn button.on {
+    display: inline;
+}
+/* 패밀리 사이트 네비*/
+#fnb {
+    position: relative;
+    margin-top: 60px;
+    background: #fff;
+}
+#fnb .wrap:after {
+    content: '배너';
+    position: absolute;
+    color: 333px;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+}
+#fnb .btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 80px;
+}
+#fnb .btn button {
+    display: none;
+    padding: 0;
+}
+#fnb .btn button i {
+    color: #999;
+    font-size: 30px;
+}
+#fnb .btn button.on {
+    display: inline-block;
+}
+#fnb .fnb_slide {
+    margin-left: 245px;
+    overflow:hidden;
+}
+#fnb ul {
+    white-space: nowrap;
+    position: relative;
+    top: 0;
+    left: 0;
+    font-size: 0;
+}
+#fnb ul li {
+    display: inline-block;
+    padding: 15px 60px 15px 0;
+}
+#fnb ul li:first-child {
+    padding-left: 0;
+}
+#fnb ul li:last-child {
+    padding-right: 0;
+}
+#fnb ul li:after {
+    content: '';
+    position: absolute;
+    top: calc(50% - 2px);
+    right: 0;
+    width: 4px;
+    height: 4px;
+    background: #aaa;
+}
+#fnb ul li img {
+    height: 45px;
+}
+
+

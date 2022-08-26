@@ -239,13 +239,13 @@ $(".notice_slide ul").hover(function(){
     ns_timer = setInterval("ns_go()",3000);
     }
 })
-$(".btn .stop").click(function(){
+$(".notice_slide .stop").click(function(){
     ns_stop = 0;
     clearInterval(ns_timer);
     $(this).removeClass("on");
     $(".btn .play").addClass("on");
 })
-$(".btn .play").click(function(){
+$(".notice_slide .play").click(function(){
     ns_stop = 1;
     ns_timer = setInterval("ns_go()",3000);
     $(this).removeClass("on");
@@ -318,10 +318,88 @@ for (n = 0; n <= 6; n++) {
     $(".date li").eq(n).text(day_list);
 }
 
-$(".fi_menu li").click(function(){
-    var open_no = $(this).index();
+var open_no = 0;
+var fi_last = $(".fi_menu li:last-child").index();
+function fi_move(){
     $(".fi_menu li").removeClass("off");
-    $(this).addClass("on").siblings("li").removeClass("on").eq(open_no - 1).addClass("off");
-    $(".fi_cont > div").eq(open_no).addClass("on").siblings("div").removeClass("on");
-    console.log(open_no);
+    $(".fi_menu li").eq(open_no).addClass("on").siblings("li").removeClass("on").eq(open_no - 1).addClass("off");
+    $(".fi_cont > div").eq(open_no).addClass("on").css({"opacity":"0"}).animate({"opacity":"1.0"},1000).siblings("div").removeClass("on");
+}
+function fi_next() {
+    if(open_no >= fi_last) { open_no = -1 }
+    open_no = open_no + 1;
+    fi_move();
+}
+
+$(".fi_menu li").click(function(){
+    open_no = $(this).index();
+    fi_move();
 })
+$("#fi .next").click(function(){
+    fi_next()
+})
+$("#fi .prev").click(function(){
+    if(open_no <= 0) { open_no = fi_last + 1}
+    open_no = open_no - 1;
+    fi_move();
+})
+fi_auto = setInterval("fi_next()",8000);
+
+// 호버시 stop 함수 작동
+function fi_stop(){
+    $("#fi .stop").removeClass("on").siblings(".play").addClass("on");
+    clearInterval(fi_auto);
+}
+function fi_play(){
+    $("#fi .play").removeClass("on").siblings(".stop").addClass("on");
+    fi_auto = setInterval("fi_next()",8000);
+}
+
+$("#fi .stop").click(function(){
+    fi_stop();
+})
+$("#fi .play").click(function(){
+    fi_play();
+})
+$(".fi_cont").hover(function(){
+    fi_stop()
+})
+
+/* 하단 패밀리 사이트 바 */
+var fnb_lenth;
+console.log(fnb_lenth);
+
+function fnb_go() {
+    var fnb_lenth = - $("#fnb ul li:first-child img").width() - 60;
+    $("#fnb ul").animate({"left":fnb_lenth},300,function(){
+        $(this).css({"left":0});
+        $("#fnb ul li:first-child").appendTo($("#fnb ul"));
+    });
+}
+function fnb_back() {
+    var fnb_lenth = - $("#fnb ul li:last-child img").width() - 60;
+    console.log(fnb_lenth);
+    $("#fnb ul li:last-child").prependTo($("#fnb ul"))
+    $("#fnb ul").css({"left":fnb_lenth}).animate({"left":0},300);
+}
+$("#fnb .next").click(function(){
+    $("#fnb ul").finish();
+    fnb_go();
+    $("#fnb .stop").removeClass("on").siblings(".play").addClass("on");
+    clearInterval(fnb_auto)
+})
+$("#fnb .prev").click(function(){
+    $("#fnb ul").finish();
+    fnb_back();
+    $("#fnb .stop").removeClass("on").siblings(".play").addClass("on");
+    clearInterval(fnb_auto)
+})
+$("#fnb .stop").click(function(){
+    $("#fnb .stop").removeClass("on").siblings(".play").addClass("on");
+    clearInterval(fnb_auto)
+})
+$("#fnb .play").click(function(){
+    $("#fnb .play").removeClass("on").siblings(".stop").addClass("on");
+    fnb_auto = setInterval("fnb_go()",3000);
+})
+fnb_auto = setInterval("fnb_go()",3000);
