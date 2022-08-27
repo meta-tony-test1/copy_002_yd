@@ -86,6 +86,9 @@ function snb_ud(){
     $(".cst i").animate({"top":-34},500);
     $(".cst i").animate({"top":-27},500);
 }
+$(".mt").click(function(){
+    $("html").animate({"scrollTop":0});
+})
 setInterval("snb_ud()")
 /* content */
 /* s1_site_map */
