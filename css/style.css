@@ -647,6 +647,10 @@ header .gnb #detail .district .category a:hover {
     outline: 1px solid #04366c;
 }
 
+#snb {
+    display: none;
+}
+
 /* footer */
 footer {
     background: #3d4049;
@@ -1758,26 +1762,26 @@ left: -4px;
     border-radius: 10px;
     position: relative;
 }
-#fi .fi_menu ul {
+#fi .fi_menu ul.main {
     color: #fff;
     text-align: center;
     position: relative;
     padding: 15px 0 0 240px;
     font-size: 16px;
 }
-#fi .fi_menu ul li {
+#fi .fi_menu ul.main li {
     border-radius: 10px;
     float: left;
     position: relative;
 
 }
-#fi .fi_menu ul li.on {
+#fi .fi_menu ul.main li.on {
     background: #1b3f91;
 }
-#fi .fi_menu ul li.off:after, #fi .fi_menu ul li.on:after {
+#fi .fi_menu ul.main li.off:after, #fi .fi_menu ul.main li.on:after {
     display: none;
 }
-#fi .fi_menu ul li:after {
+#fi .fi_menu ul.main li:after {
     content: '';
     position: absolute;
     top: calc(50% - 6px);
@@ -1786,17 +1790,44 @@ left: -4px;
     height: 12px;
     background: rgba(255,255,255, 0.5);
 }
-#fi .fi_menu ul li:last-child:after {
+#fi .fi_menu ul.main li:last-child:after {
     display: none;
 }
-#fi .fi_menu ul li button {
+#fi .fi_menu ul.main li button {
     white-space: nowrap;
     width: 100%;
     padding: 0 19px;
     line-height: 45px;
 }
-#fi .fi_menu ul li button:focus {
+#fi .fi_menu ul.main li button:focus {
     outline: 2px solid #000;
+}
+#fi .fi_menu .m_menu {
+    display: none;
+    position: absolute;
+    top: 47px;
+    border: 3px solid #3b62bb;
+    z-index: 10;
+    width: 100%;
+    background: #fff;
+    font-size: 15px;
+    color: 282828px;
+}
+#fi .fi_menu .m_menu.on {
+    display: none;
+}
+#fi .fi_menu .m_menu ul li {
+    float: left;
+    width: 50%;
+    line-height: 45px;
+    text-align: center;
+}
+#fi .fi_menu .m_menu ul li.on button {
+    color: #3b62b3;
+    text-decoration: underline;
+}
+#fi .fi_menu .m_menu ul li:nth-child(2n) {
+    border-left:1px dashed #ddd;
 }
 /* 콘텐츠 */
 #fi .fi_cont {
@@ -1829,7 +1860,21 @@ left: -4px;
 #fi .fi_cont > .lr {
     display: none;
 }
-
+    #fi .fi_cont > .lr button {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 67px;
+        height: 67px;
+    }
+    #fi .fi_cont > .lr button.prev {
+        background: url(../images/icon_fi1.png)no-repeat center;
+        left: -120px;
+    }
+    #fi .fi_cont > .lr button.next {
+        background: url(../images/icon_fi2.png)no-repeat center;
+        right: -120px;
+    }
 
 
 
